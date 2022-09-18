@@ -59,7 +59,7 @@ ES_t EXT_EEPROM_enuWriteData( u16 Copy_u16Address , u8 Copy_u8Data )
 
 	if( IIC_enuStartCondition() == ES_OK )
 	{
-		if( IIC_enuWriteSlaveAddress( SlaveAddress ) == ES_OK )
+		if( IIC_enuWriteSlaveAddress( SlaveAddress , TW_WRITE ) == ES_OK )
 		{
 			if( IIC_enuWriteData( ByteAddress ) == ES_OK )
 			{
