@@ -14,6 +14,12 @@ typedef enum
 	ES_NOK,
 	ES_OUT_RANGE,
 	ES_NULL_POINTER,
+	ES_NACK,
+	ES_ARB_LOST,
+	ES_OWN_SLA_R,
+	ES_OWN_SLA_W,
+	ES_NOT_OWN_SLA,
+	ES_TW_SR_STOP,
 }ES_t;
 
 #endif /* ERRORSTATE_H_ */

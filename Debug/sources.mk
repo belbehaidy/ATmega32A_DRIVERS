@@ -22,6 +22,7 @@ C_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 App \
+HAL/EXT_EEPROM \
 HAL/Keypad \
 HAL/L293D \
 HAL/LCD \
@@ -32,8 +33,10 @@ HAL/StepMotor \
 HAL/Switch \
 MCAL/ADC \
 MCAL/DIO \
+MCAL/EEPROM \
 MCAL/EXTI \
 MCAL/GIE \
+MCAL/IIC \
 MCAL/PWM \
 MCAL/TIMER \
 MCAL/UART \
