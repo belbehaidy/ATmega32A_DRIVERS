@@ -15,21 +15,22 @@ typedef struct
 	void (*ptrFun)(void *);
 }UART_Int_t;
 
-#define CPU_CLOCK			16000000UL
+#define CPU_CLOCK			16000000ULL
 
 #define UART_INTERRUPTS		3
 #define BIT_MASK			0x01
 #define TWO_BITS_MASK		0x03
-#define NIBBLE_MASK			0x0F
+//#define NIBBLE_MASK			0x0F
 #define BYTE_SHIFT			8
 
-/********************************/
-/*	UBRR VALUE CALCULATOR MACRO	*/
-/********************************/
-#define UBRR_VALUE(BAUD_RATE)		(u16)( ( ( CPU_CLOCK * OPERATING_MODE) / ( 16 * BAUD_RATE ) ) - 1 )
+/************************************************************************************************************/
+/*									BAUD Rate UBRR VALUE CALCULATOR MACROs									*/
+/************************************************************************************************************/
+#define UBRR_VALUE( _BAUD_RATE_ )		(u16)( ( ( CPU_CLOCK * SPEED_MODE) / ( 16UL * _BAUD_RATE_ ) ) - 1UL )
+/************************************************************************************************************/
 
 /********************************/
-/*	OPERATING MODE  OPTIONs		*/
+/*		SPEED MODE OPTIONs		*/
 /********************************/
 #define NORMAL_SPEED		1
 #define DOUBLE_SPEED		2

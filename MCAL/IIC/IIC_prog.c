@@ -23,28 +23,37 @@ ES_t IIC_enuInit(void)
 
 	/*	Setting TWI Prescaler & TWI Bit rate 	*/
 	TWBR = TWBR_VALUE(	SCL_FREQ ) ;
-	TWSR = 0x00 ;
-	switch( TWI_PRES )
+	if( TWBR < TWBR_MIN )
 	{
-		case TWI_PRES_1		:	TWSR = ( TWI_PRES_1_BITS << TWPS0 ) ;
-			break;
-		case TWI_PRES_4		:	TWSR = ( TWI_PRES_4_BITS << TWPS0 ) ;
-			break;
-		case TWI_PRES_16	:	TWSR = ( TWI_PRES_16_BITS << TWPS0 ) ;
-			break;
-		case TWI_PRES_64	:	TWSR = ( TWI_PRES_64_BITS << TWPS0 ) ;
-			break;
-		default :	Local_enuErrorState = ES_OUT_RANGE;
+		Local_enuErrorState = ES_OUT_RANGE;
+		#warning " IIC_enuInit(): TWBR value below minimum. TWI communication is interrupted ."
 	}
+	else
+	{
+		TWSR = 0x00 ;
+		switch( TWI_PRES )
+		{
+			case TWI_PRES_1		:	TWSR = ( TWI_PRES_1_BITS << TWPS0 ) ;
+				break;
+			case TWI_PRES_4		:	TWSR = ( TWI_PRES_4_BITS << TWPS0 ) ;
+				break;
+			case TWI_PRES_16	:	TWSR = ( TWI_PRES_16_BITS << TWPS0 ) ;
+				break;
+			case TWI_PRES_64	:	TWSR = ( TWI_PRES_64_BITS << TWPS0 ) ;
+				break;
+			default :	Local_enuErrorState = ES_OUT_RANGE;
+		}
 
-	/*	Setting TWI Control Register	*/
-	u8 Local_u8TWCRCopy = 0x00 ;
-//	Local_u8TWCRCopy |=	  ( BIT_MASK << TWINT ) ;		/*	Clearing Interrupt Flag		*/
-	Local_u8TWCRCopy |=	  ( BIT_MASK << TWEA  ) ;		/*	Enable ACK bit				*/
-	Local_u8TWCRCopy |=	  ( BIT_MASK << TWEN  ) ;		/*	Enable TWI Interrupt		*/
-	Local_u8TWCRCopy |=	  ( BIT_MASK << TWIE  ) ;		/*	Enable TWI 					*/
+		/*	Setting TWI Control Register	*/
+		u8 Local_u8TWCRCopy = 0x00 ;
+//		Local_u8TWCRCopy |=	  ( BIT_MASK << TWINT ) ;		/*	Clearing Interrupt Flag		*/
+		Local_u8TWCRCopy |=	  ( BIT_MASK << TWEA  ) ;		/*	Enable ACK bit				*/
+		Local_u8TWCRCopy |=	  ( BIT_MASK << TWEN  ) ;		/*	Enable TWI Interrupt		*/
+		Local_u8TWCRCopy |=	  ( BIT_MASK << TWIE  ) ;		/*	Enable TWI 					*/
 
-	TWCR = Local_u8TWCRCopy ;
+		TWCR = Local_u8TWCRCopy ;
+
+	}
 
 	return ( Local_enuErrorState == ES_NOK ? ES_OK : Local_enuErrorState );
 }
@@ -63,7 +72,7 @@ ES_t IIC_enuStartCondition(void)	// Handles both Start Condition & Repeated Star
 
 	TWCR = Local_u8TWCRCopy ;
 
-	while( !( (TWCR >> TWINT )& BIT_MASK ) );
+	WAIT_FOT_TWINT;
 
 	if( TWI_STATUS == TW_START || TWI_STATUS == TW_REP_START )
 	{
@@ -95,7 +104,7 @@ ES_t IIC_enuWriteSlaveAddress(u8 Copy_u8SlaveAddress , u8 Copy_u8Operation )
 	{
 		u8 Local_u8TWCRCopy = TWCR ;
 
-		TWDR = ( ( Copy_u8SlaveAddress << BIT_MASK) | ( Copy_u8Operation - TW_WRITE ) / 3 ) ;
+		TWDR = ( ( Copy_u8SlaveAddress << BIT_MASK) | ( ( Copy_u8Operation - TW_WRITE ) / 3 ) ) ;
 
 		Local_u8TWCRCopy |= ( BIT_MASK << TWINT );				/*	Clearing Interrupt Flag		*/
 		Local_u8TWCRCopy &= ~ ( BIT_MASK << TWSTO ) ;			/*	Clear Stop Condition Bit	*/
@@ -103,7 +112,7 @@ ES_t IIC_enuWriteSlaveAddress(u8 Copy_u8SlaveAddress , u8 Copy_u8Operation )
 		Local_u8TWCRCopy |= ( BIT_MASK << TWEN );				/*	Enable TWI					*/
 		TWCR = Local_u8TWCRCopy ;
 
-		while( !( (TWCR >> TWINT )& BIT_MASK ) );
+		WAIT_FOT_TWINT;
 
 		if(	( ( TWI_STATUS == TW_MT_SLA_ACK ) && ( Copy_u8Operation == TW_WRITE ) ) ||			/*	Master Transmitter Mode	*/
 			( ( TWI_STATUS == TW_MR_SLA_ACK ) && ( Copy_u8Operation == TW_READ  ) ) )			/*	Master Receiver Mode	*/
@@ -148,7 +157,7 @@ ES_t IIC_enuWriteData(u8 Copy_u8Data)
 	Local_u8TWCRCopy |= ( BIT_MASK << TWEN );				/*	Enable TWI					*/
 	TWCR = Local_u8TWCRCopy ;
 
-	while( !( (TWCR >> TWINT )& BIT_MASK ) );
+	WAIT_FOT_TWINT;
 
 	if(	( TWI_STATUS == TW_MT_DATA_ACK  ) ||				/*	Master Transmitter Mode,ACK returned	*/
 		( TWI_STATUS == TW_ST_DATA_ACK  ) ||				/*	Slave Transmitter Mode,ACK returned		*/
@@ -203,7 +212,7 @@ ES_t IIC_enuReadData(u8 * Copy_pu8Data)
 
 	TWCR = Local_u8TWCRCopy ;
 
-	while( !( (TWCR >> TWINT )& BIT_MASK ) );
+	WAIT_FOT_TWINT;
 
 	if(	( TWI_STATUS == TW_MR_DATA_ACK			)		||				/*	Master Receiver Mode, Data Received , ACK returned			*/
 		( TWI_STATUS == TW_MR_DATA_NACK			)		||				/*	Master Receiver Mode, Data Received , NO ACK returned		*/

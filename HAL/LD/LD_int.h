@@ -8,6 +8,10 @@
 #ifndef LD_INT_H_
 #define LD_INT_H_
 
+#define LD_u8OFF	DIO_u8LOW
+#define LD_u8ON		DIO_u8HIGH
+
+
 #define LD_ZERO			30
 #define LD_ONE			31
 #define LD_TWO			32

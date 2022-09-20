@@ -23,8 +23,7 @@ ES_t UART_enuInit( void )
 {
 	ES_t Local_enuErrorState = ES_NOK;
 
-	UCSRC |= (BIT_MASK << URSEL_BIT );
-	UCSRC &= 0x80 ;
+	u8 Local_u8CopyUCSRC = 0x00;
 	UCSRB = 0x00 ;
 	UCSRA = 0x00 ;
 
@@ -32,7 +31,6 @@ ES_t UART_enuInit( void )
 	/*	Setting Multi-processor Communication Mode	*/
 	/************************************************/
 #if MULTI_PROCESSOR == MPCM_ON
-	UCSRC |= (BIT_MASK << URSEL_BIT );
 	UCSRA |= (BIT_MASK << MPCM_BIT );
 #endif
 
@@ -40,13 +38,12 @@ ES_t UART_enuInit( void )
 	/*	Setting Synchronous Mode / Operating Mode / Clock Polarity	*/
 	/****************************************************************/
 #if SYNC_MODE == ASYNCHRONOUS
-	UCSRC |= (BIT_MASK << URSEL_BIT );
-	UCSRC &= ~(BIT_MASK << UMSEL_BIT );
-	UCSRC &= ~(BIT_MASK << UCPOL_BIT );
+	Local_u8CopyUCSRC &= ~(BIT_MASK << UMSEL_BIT );
+	Local_u8CopyUCSRC &= ~(BIT_MASK << UCPOL_BIT );
 
-	#if OPERATING_MODE == NORMAL_SPEED
+	#if SPEED_MODE == NORMAL_SPEED
 	UCSRA &=~(BIT_MASK << U2X_BIT );
-	#elif OPERATING_MODE == DOUBLE_SPEED
+	#elif SPEED_MODE == DOUBLE_SPEED
 	UCSRA |= (BIT_MASK << U2X_BIT );
 	#else
 	#warning " UART_enuInit(): Unidentified Operating Mode. Switched to NORMAL_SPEED "
@@ -54,15 +51,12 @@ ES_t UART_enuInit( void )
 
 #elif SYNC_MODE == SYNCHRONOUS
 	UCSRA &=~(BIT_MASK << U2X_BIT );
-	UCSRC |= (BIT_MASK << URSEL_BIT );
-	UCSRC |= (BIT_MASK << UMSEL_BIT );
+	Local_u8CopyUCSRC |= (BIT_MASK << UMSEL_BIT );
 
 	#if CLOCK_POLARITY == TX_RISING_EDGE
-		UCSRC |= (BIT_MASK << URSEL_BIT );
-		UCSRC &= ~(BIT_MASK << UCPOL_BIT );
+		Local_u8CopyUCSRC &= ~(BIT_MASK << UCPOL_BIT );
 	#elif CLOCK_POLARITY == RX_RISING_EDGE
-		UCSRC |= (BIT_MASK << URSEL_BIT );
-		UCSRC |= (BIT_MASK << UCPOL_BIT );
+		Local_u8CopyUCSRC |= (BIT_MASK << UCPOL_BIT );
 	#else
 	#warning " UART_enuInit(): Unidentified Clock Polarity for Synchronous Operation . Switched to TX_RISING_EDGE Polarity "
 	#endif
@@ -70,21 +64,17 @@ ES_t UART_enuInit( void )
 #else
 #error " UART_enuInit(): Unidentified Synchronization Mode. "
 #endif
-	UCSRA &= TWO_BITS_MASK ;
 
 	/************************************************/
 	/*			Setting Frame Data bits 			*/
 	/************************************************/
 #if DATA_BITS >= FIVE_BITS && DATA_BITS <= EIGHT_BITS
-	UCSRC |= (BIT_MASK << URSEL_BIT );
-	UCSRC |= ( ( DATA_BITS - FIVE_BITS )& TWO_BITS_MASK ) << UCSZ0_BIT ;
+	Local_u8CopyUCSRC |= ( ( DATA_BITS - FIVE_BITS )& TWO_BITS_MASK ) << UCSZ0_BIT ;
 #elif DATA_BITS == NINE_BITS
 	UCSRB |= (BIT_MASK << UCSZ2_BIT );
-	UCSRC |= (BIT_MASK << URSEL_BIT );
-	UCSRC |= (TWO_BITS_MASK << UCSZ0_BIT ) ; ////////////////////////////////////////
+	Local_u8CopyUCSRC |= (TWO_BITS_MASK << UCSZ0_BIT ) ;
 #else
-	UCSRC |= (BIT_MASK << URSEL_BIT );
-	UCSRC |= (TWO_BITS_MASK << UCSZ0_BIT ) ;
+	Local_u8CopyUCSRC |= (TWO_BITS_MASK << UCSZ0_BIT ) ;
 #warning " UART_enuInit(): Unidentified Frame Data bits choice. 8-bits Choice is selected "
 #endif
 
@@ -92,17 +82,14 @@ ES_t UART_enuInit( void )
 	/*			Setting Frame Parity bits 			*/
 	/************************************************/
 #if PARITY_STATUS == NO_PARITY
-	UCSRC |= (BIT_MASK << URSEL_BIT );
-	UCSRC &= ~(BIT_MASK << UPM1_BIT );
-	UCSRC &= ~(BIT_MASK << UPM0_BIT );
+	Local_u8CopyUCSRC &= ~(BIT_MASK << UPM1_BIT );
+	Local_u8CopyUCSRC &= ~(BIT_MASK << UPM0_BIT );
 #elif PARITY_STATUS == EVEN_PARITY
-	UCSRC |= (BIT_MASK << URSEL_BIT );
-	UCSRC |= (BIT_MASK << UPM1_BIT );
-	UCSRC &= ~(BIT_MASK << UPM0_BIT );
+	Local_u8CopyUCSRC |= (BIT_MASK << UPM1_BIT );
+	Local_u8CopyUCSRC &= ~(BIT_MASK << UPM0_BIT );
 #elif PARITY_STATUS == ODD_PARITY
-	UCSRC |= (BIT_MASK << URSEL_BIT );
-	UCSRC |= (BIT_MASK << UPM1_BIT );
-	UCSRC |= (BIT_MASK << UPM0_BIT );
+	Local_u8CopyUCSRC |= (BIT_MASK << UPM1_BIT );
+	Local_u8CopyUCSRC |= (BIT_MASK << UPM0_BIT );
 #else
 #warning " UART_enuInit(): Unidentified Parity bits choice. NO Parity is selected "
 #endif
@@ -111,21 +98,22 @@ ES_t UART_enuInit( void )
 	/*			Setting Frame STOP bits 			*/
 	/************************************************/
 #if STOP_STATUS == ONE_STOP_BIT
-	UCSRC |= (BIT_MASK << URSEL_BIT );
-	UCSRC &= ~(BIT_MASK << USBS_BIT );
+	Local_u8CopyUCSRC &= ~(BIT_MASK << USBS_BIT );
 #elif STOP_STATUS == TWO_STOP_BIT
-	UCSRC |= (BIT_MASK << URSEL_BIT );
-	UCSRC |= (BIT_MASK << USBS_BIT );
+	Local_u8CopyUCSRC |= (BIT_MASK << USBS_BIT );
 #else
 #warning " UART_enuInit(): Unidentified STOP bits choice. 1-STOP bit choice is selected "
 #endif
 
+	Local_u8CopyUCSRC |= (BIT_MASK << URSEL_BIT );		/*	Setting URSEL to 1 to access UCSRC register	*/
+	UCSRC = Local_u8CopyUCSRC ;
+
 	/************************************************/
 	/*				Setting BAUD Rate	 			*/
 	/************************************************/
-	UBRRH &= ~(BIT_MASK << URSEL_BIT );
-	UBRRH |= ( ( ( UBRR_VALUE( BAUD_RATE ) ) >> BYTE_SHIFT ) & NIBBLE_MASK ) ;
-	UBRRL =  UBRR_VALUE( BAUD_RATE ) ;
+	u16 Local_u16CopyUBRR = UBRR_VALUE( BAUD_RATE );
+	UBRRH = ( Local_u16CopyUBRR >> BYTE_SHIFT ) ;
+	UBRRL =  (u8)Local_u16CopyUBRR ;
 
 	/************************************************/
 	/*				Setting UART Mode	 			*/
@@ -153,7 +141,7 @@ ES_t UART_ReceiveFrame( void *Copy_pReceivedData)
 		while( !( ( UCSRA >> RXC_BIT ) & BIT_MASK ) );		/*	Waiting for RX Complete Flag	*/
 
 		/*	Reading Data From UDR according to Frame Data bits 	*/
-		if( DATA_BITS == NINE_BITS )
+#if( DATA_BITS == NINE_BITS )
 		{
 			u8 Local_u8CopySERG = SREG;
 			asm(" CLI ");
@@ -162,10 +150,11 @@ ES_t UART_ReceiveFrame( void *Copy_pReceivedData)
 			*( (u16 *)Copy_pReceivedData ) |=	RXB ;
 			SREG = Local_u8CopySERG ;
 		}
-		else
+#else
 		{
 			*( (u8 *)Copy_pReceivedData ) = RXB ;
 		}
+#endif
 		Local_enuErrorState = ES_OK;
 	}
 	else Local_enuErrorState = ES_NULL_POINTER;
@@ -180,7 +169,7 @@ ES_t UART_SendFrame( void *Copy_pData)
 	while( !( ( UCSRA>> UDRE_BIT ) & BIT_MASK ) );		/*	Waiting for UDR Empty Flag	*/
 
 	/*	Writing Data To UDR according to Frame Data bits 	*/
-	if( DATA_BITS == NINE_BITS )
+#if( DATA_BITS == NINE_BITS )
 	{
 		u8 Local_u8CopySERG = SREG;
 		asm(" CLI ");
@@ -189,91 +178,72 @@ ES_t UART_SendFrame( void *Copy_pData)
 		TXB = *( (u16 *)Copy_pData ) ;
 		SREG = Local_u8CopySERG ;
 	}
-	else
+#else
 	{
 		TXB = *( (u8 *)Copy_pData ) ;					/*	Writing Data to UDR			*/
 	}
+#endif
 	Local_enuErrorState = ES_OK ;
 
 	return Local_enuErrorState ;
 }
 
 
-ES_t UART_enuSendPacket( void *Copy_pcData )
+ES_t UART_enuSendString( char *Copy_pcData )
 {
 	ES_t Local_enuErrorState = ES_NOK;
 
-	/*	Writing Data To UDR according to Frame Data bits 	*/
-	if( DATA_BITS == NINE_BITS )
-	{
-		while( *((u16 *)Copy_pcData) != '\0' )
-		{
-			while( !( ( UCSRA>> UDRE_BIT ) & BIT_MASK ) );		/*	Waiting for UDR Empty Flag	*/
-			u8 Local_u8CopySERG = SREG;
-			asm(" CLI ");
-			UCSRB &= ~(BIT_MASK << TXB8_BIT );
-			UCSRB |= ( ( (*( (u16 *)Copy_pcData )) >> BYTE_SHIFT ) & BIT_MASK ) << TXB8_BIT ;
-			TXB = *( (u16 *)Copy_pcData ) ;
-			SREG = Local_u8CopySERG ;
-			(u16 *)Copy_pcData++ ;
-		}
-	}
-	else
-	{
-		while( *((u8 *)Copy_pcData) != '\0' )
-		{
-			while( !( ( UCSRA>> UDRE_BIT ) & BIT_MASK ) );		/*	Waiting for UDR Empty Flag	*/
-			TXB = *( (u8 *)Copy_pcData ) ;						/*	Writing Data to UDR			*/
-			(u8 *)Copy_pcData++ ;
-		}
+#if DATA_BITS == EIGHT_BITS
 
+	while( *Copy_pcData != '\0' )
+	{
+		while( !( ( UCSRA>> UDRE_BIT ) & BIT_MASK ) );		/*	Waiting for UDR Empty Flag			*/
+		TXB = *Copy_pcData ;								/*	Writing Data to UDR					*/
+		Copy_pcData++ ;										/*	Incrementing Pointer to next Char	*/
 	}
 	Local_enuErrorState = ES_OK ;
-
+#else
+		Local_enuErrorState = ES_OUT_RANGE;
+#warning " UART_enuSendString() : Data bits should be EIGHT_BITS , can NOT Send string."
+#endif
 
 	return Local_enuErrorState ;
 }
 
-ES_t UART_enuRecievePacket(void *Copy_pcData)
+ES_t UART_enuReceiveString( char *Copy_pcData)
 {
 	ES_t Local_enuErrorState = ES_NOK;
 
-		if( Copy_pcData != NULL )
-		{
-			while( !( ( UCSRA >> RXC_BIT ) & BIT_MASK ) );		/*	Waiting for RX Complete Flag	*/
+	if( Copy_pcData != NULL )
+	{
 
-			/*	Reading Data From UDR according to Frame Data bits 	*/
-			if( DATA_BITS == NINE_BITS )
+		#if DATA_BITS == EIGHT_BITS
+
+			u8 Local_u8Data;
+
+			while(1)
 			{
-
-				while( *((u8 *)Copy_pcData) != '\0' )
+				while( !( ( UCSRA >> RXC_BIT ) & BIT_MASK ) );									/*	Waiting for RX Complete Flag		*/
+				Local_u8Data = RXB ;															/*	Reading Data Byte From UDR 		 	*/
+				if( ( Local_u8Data == '\n' ) || ( Local_u8Data == '\r' ) || ( Local_u8Data == '\0' ) )
 				{
-					while( !( ( UCSRA >> RXC_BIT ) & BIT_MASK ) );		/*	Waiting for RX Complete Flag	*/
-					u8 Local_u8CopySERG = SREG;
-					asm(" CLI ");
-					*( (u16 *)Copy_pcData )  = 	0x00;
-					*( (u16 *)Copy_pcData )  =	(u16)( ( UCSRB >> RXB8_BIT ) & BIT_MASK ) << BYTE_SHIFT ;
-					*( (u16 *)Copy_pcData ) |=	RXB ;
-					SREG = Local_u8CopySERG ;
-					(u16 *)Copy_pcData++ ;
+					*Copy_pcData = '\0';														/*	Terminating String received			*/
+					break;
 				}
-
-			}
-			else
-			{
-				while( *((u8 *)Copy_pcData) != '\0' )
-				{
-					while( !( ( UCSRA >> RXC_BIT ) & BIT_MASK ) );		/*	Waiting for RX Complete Flag	*/
-					*( (u8 *)Copy_pcData ) = RXB ;
-					(u8 *)Copy_pcData++ ;
-				}
-
+				*Copy_pcData = Local_u8Data ;													/*	Saving Data Byte To Data String  	*/
+				Copy_pcData++;																	/*	Incrementing Pointer to next Byte	*/
 			}
 			Local_enuErrorState = ES_OK;
-		}
-		else Local_enuErrorState = ES_NULL_POINTER;
 
-		return Local_enuErrorState ;
+		#else
+			Local_enuErrorState = ES_OUT_RANGE;
+			#warning " UART_enuReceiveString() : Data bits should be EIGHT_BITS , can NOT receive string."
+		#endif
+
+	}
+	else Local_enuErrorState = ES_NULL_POINTER;
+
+	return Local_enuErrorState ;
 }
 
 

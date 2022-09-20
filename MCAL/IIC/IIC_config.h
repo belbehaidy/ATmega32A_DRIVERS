@@ -12,7 +12,7 @@
 
 #define TWI_PRES				TWI_PRES_1
 
-#define TWI_ADDRESS				0x05
+#define TWI_ADDRESS				0x05			//	Slave Address of TWI module on Network
 
 #define GENERAL_CALL_REPLY		GC_ON
 

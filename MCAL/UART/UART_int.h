@@ -9,7 +9,7 @@
 #define MCAL_UART_UART_INT_H_
 
 /********************************/
-/*	OPERATING MODE  OPTIONs		*/
+/*		SPEED_MODE OPTIONs		*/
 /********************************/
 #define NORMAL_SPEED		1
 #define DOUBLE_SPEED		2
@@ -65,9 +65,9 @@ ES_t UART_ReceiveFrame( void *Copy_pReceivedData);
 
 ES_t UART_SendFrame( void *Copy_pData);
 
-ES_t UART_enuSendPacket( void *Copy_pcData );
+ES_t UART_enuSendString( char *Copy_pcData );
 
-ES_t UART_enuRecievePacket(void *Copy_pcData);
+ES_t UART_enuReceiveString( char *Copy_pcData);
 
 ES_t UART_enuCallBack(  u8 Copy_u8InterruptName , void ( *Copy_pAppFun(void *) ) , void *Copy_pAppVar );
 

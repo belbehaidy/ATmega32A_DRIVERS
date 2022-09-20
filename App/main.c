@@ -5,13 +5,75 @@
  *      Author: Bassem El-behaidy
  */
 
+#include "../Libraries/stdTypes.h"
+#include "../Libraries/errorState.h"
+
+//#include "../HAL/EXT_EEPROM/EXT_EEPROM_int.h"
+#include "../HAL/LD/LD_int.h"
+
+#include "../MCAL/DIO/DIO_int.h"
+#include "../MCAL/GIE/GIE_int.h"
+#include "../MCAL/TIMER/TIMER_int.h"
+#include "../MCAL/UART/UART_int.h"
+
 
 int
 main(void)
 {
-	return 0 ;
+	DIO_enuInit();
+	LD_enuInit();
+//	EXT_EEPROM_enuInit();
+	UART_enuInit();
+	Timer_enuInit();
+	GIE_enuEnable();
+
+	char Local_u8ReceivedData[30];
+
+	while(1)
+	{
+		UART_enuSendString( "Hi" );
+		UART_enuReceiveString( Local_u8ReceivedData );
+		LD_enuSetState( LD_ZERO , LD_u8ON );
+		Timer_PollingDelay( TIMER0 ,100 );
+		UART_enuSendString( Local_u8ReceivedData );
+		LD_enuSetState( LD_ZERO , LD_u8OFF );
+//		Timer_PollingDelay( TIMER0 , 500 );
+	}
 }
 
+
+/*	u8 Local_u8Data = 10 ;
+	u8 Local_u8ReadData = 0 ;
+	u16 Local_u16Address = 0x0150 ;
+
+	if( EXT_EEPROM_enuWriteData( Local_u16Address , Local_u8Data ) == ES_OK)
+	{
+		if( EXT_EEPROM_enuReadData( Local_u16Address , &Local_u8ReadData ) == ES_OK )
+		{
+			if( Local_u8ReadData == Local_u8Data )
+			{
+				while(1)
+				{
+					LD_enuSetState( LD_ZERO , LD_u8ON );
+					Timer_PollingDelay( TIMER0 , 500 );
+					LD_enuSetState( LD_ZERO , LD_u8OFF );
+					Timer_PollingDelay( TIMER0 , 500 );
+				}
+			}
+			else
+			{
+				while(1)
+				{
+					LD_enuSetState( LD_TWO , LD_u8ON );
+					_delay_ms(500);
+					LD_enuSetState( LD_TWO , LD_u8OFF );
+					_delay_ms(500);
+				}
+			}
+		}
+	}
+}
+*/
 /*
 #include "../Libraries/stdTypes.h"
 #include "../Libraries/errorState.h"

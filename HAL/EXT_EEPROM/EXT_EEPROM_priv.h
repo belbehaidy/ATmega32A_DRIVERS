@@ -13,7 +13,7 @@
 #define TWO_BIT_MASK			0x03
 #define THREE_BIT_MASK			0x07
 
-#define SLAVE_ADDRESS_PREFIX	0x50		//	01010xxx where x are saved as Zeros in prefix
+#define SLAVE_ADDRESS_PREFIX	0x50		//	initially 1010xxxx where x are saved as Zeros in prefix then shifted ONE to Right
 
 #define EXT_EEPROM_2K			20
 #define EXT_EEPROM_4K			23

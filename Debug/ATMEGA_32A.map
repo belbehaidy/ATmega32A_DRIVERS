@@ -204,7 +204,7 @@ LOAD d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0xd0fa
+.text           0x00000000     0xd11c
  *(.vectors)
  .vectors       0x00000000       0x54 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -363,417 +363,417 @@ LOAD d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr
                 0x00002ca6       0x10 ./MCAL/WDT/WDT_prog.o
                 0x00002ca6                WDT_Reset
  .text.UART_enuInit
-                0x00002cb6      0x126 ./MCAL/UART/UART_prog.o
+                0x00002cb6       0xa8 ./MCAL/UART/UART_prog.o
                 0x00002cb6                UART_enuInit
  .text.UART_ReceiveFrame
-                0x00002ddc       0x48 ./MCAL/UART/UART_prog.o
-                0x00002ddc                UART_ReceiveFrame
+                0x00002d5e       0x48 ./MCAL/UART/UART_prog.o
+                0x00002d5e                UART_ReceiveFrame
  .text.UART_SendFrame
-                0x00002e24       0x48 ./MCAL/UART/UART_prog.o
-                0x00002e24                UART_SendFrame
- .text.UART_enuSendPacket
-                0x00002e6c       0x60 ./MCAL/UART/UART_prog.o
-                0x00002e6c                UART_enuSendPacket
- .text.UART_enuRecievePacket
-                0x00002ecc       0x6a ./MCAL/UART/UART_prog.o
-                0x00002ecc                UART_enuRecievePacket
+                0x00002da6       0x48 ./MCAL/UART/UART_prog.o
+                0x00002da6                UART_SendFrame
+ .text.UART_enuSendString
+                0x00002dee       0x5e ./MCAL/UART/UART_prog.o
+                0x00002dee                UART_enuSendString
+ .text.UART_enuReceiveString
+                0x00002e4c       0x72 ./MCAL/UART/UART_prog.o
+                0x00002e4c                UART_enuReceiveString
  .text.UART_enuCallBack
-                0x00002f36       0xca ./MCAL/UART/UART_prog.o
-                0x00002f36                UART_enuCallBack
+                0x00002ebe       0xca ./MCAL/UART/UART_prog.o
+                0x00002ebe                UART_enuCallBack
  .text.__vector_13
-                0x00003000       0x6e ./MCAL/UART/UART_prog.o
-                0x00003000                __vector_13
+                0x00002f88       0x6e ./MCAL/UART/UART_prog.o
+                0x00002f88                __vector_13
  .text.__vector_14
-                0x0000306e       0x6e ./MCAL/UART/UART_prog.o
-                0x0000306e                __vector_14
+                0x00002ff6       0x6e ./MCAL/UART/UART_prog.o
+                0x00002ff6                __vector_14
  .text.__vector_15
-                0x000030dc       0x6e ./MCAL/UART/UART_prog.o
-                0x000030dc                __vector_15
+                0x00003064       0x6e ./MCAL/UART/UART_prog.o
+                0x00003064                __vector_15
  .text.Timer_enuInit
-                0x0000314a      0x3ba ./MCAL/TIMER/TIMER_prog.o
-                0x0000314a                Timer_enuInit
+                0x000030d2      0x3ba ./MCAL/TIMER/TIMER_prog.o
+                0x000030d2                Timer_enuInit
  .text.Timer_u32TimerClock
-                0x00003504      0x282 ./MCAL/TIMER/TIMER_prog.o
+                0x0000348c      0x282 ./MCAL/TIMER/TIMER_prog.o
  .text.Timer_enuGetClock
-                0x00003786       0x84 ./MCAL/TIMER/TIMER_prog.o
-                0x00003786                Timer_enuGetClock
+                0x0000370e       0x84 ./MCAL/TIMER/TIMER_prog.o
+                0x0000370e                Timer_enuGetClock
  .text.Timer_enuSetClkPrescaler
-                0x0000380a      0x116 ./MCAL/TIMER/TIMER_prog.o
-                0x0000380a                Timer_enuSetClkPrescaler
+                0x00003792      0x116 ./MCAL/TIMER/TIMER_prog.o
+                0x00003792                Timer_enuSetClkPrescaler
  .text.Timer_enuGetClkSelect
-                0x00003920       0x8a ./MCAL/TIMER/TIMER_prog.o
-                0x00003920                Timer_enuGetClkSelect
+                0x000038a8       0x8a ./MCAL/TIMER/TIMER_prog.o
+                0x000038a8                Timer_enuGetClkSelect
  .text.Timer_enuSetOCn_Mode
-                0x000039aa       0xe6 ./MCAL/TIMER/TIMER_prog.o
-                0x000039aa                Timer_enuSetOCn_Mode
+                0x00003932       0xe6 ./MCAL/TIMER/TIMER_prog.o
+                0x00003932                Timer_enuSetOCn_Mode
  .text.Timer_enuGetOCn_Mode
-                0x00003a90       0x84 ./MCAL/TIMER/TIMER_prog.o
-                0x00003a90                Timer_enuGetOCn_Mode
+                0x00003a18       0x84 ./MCAL/TIMER/TIMER_prog.o
+                0x00003a18                Timer_enuGetOCn_Mode
  .text.Timer_enuSetTimer_Mode
-                0x00003b14      0x120 ./MCAL/TIMER/TIMER_prog.o
-                0x00003b14                Timer_enuSetTimer_Mode
+                0x00003a9c      0x120 ./MCAL/TIMER/TIMER_prog.o
+                0x00003a9c                Timer_enuSetTimer_Mode
  .text.Timer_enuGetTimer_Mode
-                0x00003c34       0x84 ./MCAL/TIMER/TIMER_prog.o
-                0x00003c34                Timer_enuGetTimer_Mode
+                0x00003bbc       0x84 ./MCAL/TIMER/TIMER_prog.o
+                0x00003bbc                Timer_enuGetTimer_Mode
  .text.Timer_enuReset
-                0x00003cb8       0x62 ./MCAL/TIMER/TIMER_prog.o
-                0x00003cb8                Timer_enuReset
+                0x00003c40       0x62 ./MCAL/TIMER/TIMER_prog.o
+                0x00003c40                Timer_enuReset
  .text.Timer_enuPreLoad
-                0x00003d1a       0x70 ./MCAL/TIMER/TIMER_prog.o
-                0x00003d1a                Timer_enuPreLoad
+                0x00003ca2       0x70 ./MCAL/TIMER/TIMER_prog.o
+                0x00003ca2                Timer_enuPreLoad
  .text.Timer_enuReadCounterValue
-                0x00003d8a       0x72 ./MCAL/TIMER/TIMER_prog.o
-                0x00003d8a                Timer_enuReadCounterValue
+                0x00003d12       0x72 ./MCAL/TIMER/TIMER_prog.o
+                0x00003d12                Timer_enuReadCounterValue
  .text.Timer_enuSetOCRnValue
-                0x00003dfc       0x94 ./MCAL/TIMER/TIMER_prog.o
-                0x00003dfc                Timer_enuSetOCRnValue
+                0x00003d84       0x94 ./MCAL/TIMER/TIMER_prog.o
+                0x00003d84                Timer_enuSetOCRnValue
  .text.Timer_enuReadOCRnValue
-                0x00003e90       0x60 ./MCAL/TIMER/TIMER_prog.o
-                0x00003e90                Timer_enuReadOCRnValue
+                0x00003e18       0x60 ./MCAL/TIMER/TIMER_prog.o
+                0x00003e18                Timer_enuReadOCRnValue
  .text.Timer_PollingDelay
-                0x00003ef0     0x3432 ./MCAL/TIMER/TIMER_prog.o
-                0x00003ef0                Timer_PollingDelay
+                0x00003e78     0x344a ./MCAL/TIMER/TIMER_prog.o
+                0x00003e78                Timer_PollingDelay
  .text.Timer_ISR_Delay
-                0x00007322       0x46 ./MCAL/TIMER/TIMER_prog.o
-                0x00007322                Timer_ISR_Delay
+                0x000072c2       0x46 ./MCAL/TIMER/TIMER_prog.o
+                0x000072c2                Timer_ISR_Delay
  .text.Timer_enuInterruptEnable
-                0x00007368       0xbc ./MCAL/TIMER/TIMER_prog.o
-                0x00007368                Timer_enuInterruptEnable
+                0x00007308       0xbc ./MCAL/TIMER/TIMER_prog.o
+                0x00007308                Timer_enuInterruptEnable
  .text.Timer_enuInterruptDisable
-                0x00007424       0xbc ./MCAL/TIMER/TIMER_prog.o
-                0x00007424                Timer_enuInterruptDisable
+                0x000073c4       0xbc ./MCAL/TIMER/TIMER_prog.o
+                0x000073c4                Timer_enuInterruptDisable
  .text.Timer_IsInterruptEnabled
-                0x000074e0       0xc4 ./MCAL/TIMER/TIMER_prog.o
-                0x000074e0                Timer_IsInterruptEnabled
+                0x00007480       0xc4 ./MCAL/TIMER/TIMER_prog.o
+                0x00007480                Timer_IsInterruptEnabled
  .text.Timer_enuCallBack
-                0x000075a4       0xce ./MCAL/TIMER/TIMER_prog.o
-                0x000075a4                Timer_enuCallBack
+                0x00007544       0xce ./MCAL/TIMER/TIMER_prog.o
+                0x00007544                Timer_enuCallBack
  .text.__vector_4
-                0x00007672       0x6e ./MCAL/TIMER/TIMER_prog.o
-                0x00007672                __vector_4
+                0x00007612       0x6e ./MCAL/TIMER/TIMER_prog.o
+                0x00007612                __vector_4
  .text.__vector_5
-                0x000076e0       0x6e ./MCAL/TIMER/TIMER_prog.o
-                0x000076e0                __vector_5
+                0x00007680       0x6e ./MCAL/TIMER/TIMER_prog.o
+                0x00007680                __vector_5
  .text.__vector_10
-                0x0000774e       0x6e ./MCAL/TIMER/TIMER_prog.o
-                0x0000774e                __vector_10
+                0x000076ee       0x6e ./MCAL/TIMER/TIMER_prog.o
+                0x000076ee                __vector_10
  .text.__vector_11
-                0x000077bc       0x6e ./MCAL/TIMER/TIMER_prog.o
-                0x000077bc                __vector_11
+                0x0000775c       0x6e ./MCAL/TIMER/TIMER_prog.o
+                0x0000775c                __vector_11
  .text.PWM_enuInit
-                0x0000782a      0x3c2 ./MCAL/PWM/PWM_prog.o
-                0x0000782a                PWM_enuInit
+                0x000077ca      0x3c2 ./MCAL/PWM/PWM_prog.o
+                0x000077ca                PWM_enuInit
  .text.PWM_u32TimerClock
-                0x00007bec      0x1c0 ./MCAL/PWM/PWM_prog.o
+                0x00007b8c      0x1c0 ./MCAL/PWM/PWM_prog.o
  .text.PWM_enuGetClock
-                0x00007dac       0x66 ./MCAL/PWM/PWM_prog.o
-                0x00007dac                PWM_enuGetClock
+                0x00007d4c       0x66 ./MCAL/PWM/PWM_prog.o
+                0x00007d4c                PWM_enuGetClock
  .text.PWM_enuSetClkPrescaler
-                0x00007e12       0xd0 ./MCAL/PWM/PWM_prog.o
-                0x00007e12                PWM_enuSetClkPrescaler
+                0x00007db2       0xd0 ./MCAL/PWM/PWM_prog.o
+                0x00007db2                PWM_enuSetClkPrescaler
  .text.PWM_enuGetClkSelect
-                0x00007ee2       0x8a ./MCAL/PWM/PWM_prog.o
-                0x00007ee2                PWM_enuGetClkSelect
+                0x00007e82       0x8a ./MCAL/PWM/PWM_prog.o
+                0x00007e82                PWM_enuGetClkSelect
  .text.PWM_enuSetCOM_Mode
-                0x00007f6c      0x100 ./MCAL/PWM/PWM_prog.o
-                0x00007f6c                PWM_enuSetCOM_Mode
+                0x00007f0c      0x100 ./MCAL/PWM/PWM_prog.o
+                0x00007f0c                PWM_enuSetCOM_Mode
  .text.PWM_enuGetCOM_Mode
-                0x0000806c       0x84 ./MCAL/PWM/PWM_prog.o
-                0x0000806c                PWM_enuGetCOM_Mode
+                0x0000800c       0x84 ./MCAL/PWM/PWM_prog.o
+                0x0000800c                PWM_enuGetCOM_Mode
  .text.PWM_enuSetWGM_Mode
-                0x000080f0      0x118 ./MCAL/PWM/PWM_prog.o
-                0x000080f0                PWM_enuSetWGM_Mode
+                0x00008090      0x118 ./MCAL/PWM/PWM_prog.o
+                0x00008090                PWM_enuSetWGM_Mode
  .text.PWM_enuGetWGM_Mode
-                0x00008208       0x84 ./MCAL/PWM/PWM_prog.o
-                0x00008208                PWM_enuGetWGM_Mode
+                0x000081a8       0x84 ./MCAL/PWM/PWM_prog.o
+                0x000081a8                PWM_enuGetWGM_Mode
  .text.PWM_enuSetOCRnValue
-                0x0000828c       0xe0 ./MCAL/PWM/PWM_prog.o
-                0x0000828c                PWM_enuSetOCRnValue
+                0x0000822c       0xe0 ./MCAL/PWM/PWM_prog.o
+                0x0000822c                PWM_enuSetOCRnValue
  .text.PWM_enuReadOCRnValue
-                0x0000836c       0x6c ./MCAL/PWM/PWM_prog.o
-                0x0000836c                PWM_enuReadOCRnValue
+                0x0000830c       0x6c ./MCAL/PWM/PWM_prog.o
+                0x0000830c                PWM_enuReadOCRnValue
  .text.PWM_enuSetICR1Value
-                0x000083d8       0x52 ./MCAL/PWM/PWM_prog.o
-                0x000083d8                PWM_enuSetICR1Value
+                0x00008378       0x52 ./MCAL/PWM/PWM_prog.o
+                0x00008378                PWM_enuSetICR1Value
  .text.PWM_enuSetInterruptMode
-                0x0000842a       0x1a ./MCAL/PWM/PWM_prog.o
-                0x0000842a                PWM_enuSetInterruptMode
+                0x000083ca       0x1a ./MCAL/PWM/PWM_prog.o
+                0x000083ca                PWM_enuSetInterruptMode
  .text.PWM_enuGetInterruptMode
-                0x00008444       0x20 ./MCAL/PWM/PWM_prog.o
-                0x00008444                PWM_enuGetInterruptMode
+                0x000083e4       0x20 ./MCAL/PWM/PWM_prog.o
+                0x000083e4                PWM_enuGetInterruptMode
  .text.PWM_enuSetDutyCycle
-                0x00008464       0x2a ./MCAL/PWM/PWM_prog.o
-                0x00008464                PWM_enuSetDutyCycle
+                0x00008404       0x2a ./MCAL/PWM/PWM_prog.o
+                0x00008404                PWM_enuSetDutyCycle
  .text.PWM_enuInterruptEnable
-                0x0000848e       0xbc ./MCAL/PWM/PWM_prog.o
-                0x0000848e                PWM_enuInterruptEnable
+                0x0000842e       0xbc ./MCAL/PWM/PWM_prog.o
+                0x0000842e                PWM_enuInterruptEnable
  .text.PWM_enuInterruptDisable
-                0x0000854a       0xbc ./MCAL/PWM/PWM_prog.o
-                0x0000854a                PWM_enuInterruptDisable
+                0x000084ea       0xbc ./MCAL/PWM/PWM_prog.o
+                0x000084ea                PWM_enuInterruptDisable
  .text.PWM_IsInterruptEnabled
-                0x00008606       0xca ./MCAL/PWM/PWM_prog.o
-                0x00008606                PWM_IsInterruptEnabled
+                0x000085a6       0xca ./MCAL/PWM/PWM_prog.o
+                0x000085a6                PWM_IsInterruptEnabled
  .text.PWM_enuCallBack
-                0x000086d0       0xce ./MCAL/PWM/PWM_prog.o
-                0x000086d0                PWM_enuCallBack
+                0x00008670       0xce ./MCAL/PWM/PWM_prog.o
+                0x00008670                PWM_enuCallBack
  .text.__vector_7
-                0x0000879e       0x6e ./MCAL/PWM/PWM_prog.o
-                0x0000879e                __vector_7
+                0x0000873e       0x6e ./MCAL/PWM/PWM_prog.o
+                0x0000873e                __vector_7
  .text.__vector_8
-                0x0000880c       0x6e ./MCAL/PWM/PWM_prog.o
-                0x0000880c                __vector_8
+                0x000087ac       0x6e ./MCAL/PWM/PWM_prog.o
+                0x000087ac                __vector_8
  .text.__vector_9
-                0x0000887a       0x6e ./MCAL/PWM/PWM_prog.o
-                0x0000887a                __vector_9
+                0x0000881a       0x6e ./MCAL/PWM/PWM_prog.o
+                0x0000881a                __vector_9
  .text.IIC_enuInit
-                0x000088e8       0x6a ./MCAL/IIC/IIC_prog.o
-                0x000088e8                IIC_enuInit
+                0x00008888       0x7a ./MCAL/IIC/IIC_prog.o
+                0x00008888                IIC_enuInit
  .text.IIC_enuStartCondition
-                0x00008952       0x76 ./MCAL/IIC/IIC_prog.o
-                0x00008952                IIC_enuStartCondition
+                0x00008902       0x76 ./MCAL/IIC/IIC_prog.o
+                0x00008902                IIC_enuStartCondition
  .text.IIC_enuStopCondition
-                0x000089c8       0x3c ./MCAL/IIC/IIC_prog.o
-                0x000089c8                IIC_enuStopCondition
+                0x00008978       0x3c ./MCAL/IIC/IIC_prog.o
+                0x00008978                IIC_enuStopCondition
  .text.IIC_enuWriteSlaveAddress
-                0x00008a04      0x16a ./MCAL/IIC/IIC_prog.o
-                0x00008a04                IIC_enuWriteSlaveAddress
+                0x000089b4      0x16a ./MCAL/IIC/IIC_prog.o
+                0x000089b4                IIC_enuWriteSlaveAddress
  .text.IIC_enuWriteData
-                0x00008b6e       0xe0 ./MCAL/IIC/IIC_prog.o
-                0x00008b6e                IIC_enuWriteData
+                0x00008b1e       0xe0 ./MCAL/IIC/IIC_prog.o
+                0x00008b1e                IIC_enuWriteData
  .text.IIC_enuCheckMyAddress
-                0x00008c4e       0x6e ./MCAL/IIC/IIC_prog.o
-                0x00008c4e                IIC_enuCheckMyAddress
+                0x00008bfe       0x6e ./MCAL/IIC/IIC_prog.o
+                0x00008bfe                IIC_enuCheckMyAddress
  .text.IIC_enuReadData
-                0x00008cbc       0xf6 ./MCAL/IIC/IIC_prog.o
-                0x00008cbc                IIC_enuReadData
+                0x00008c6c       0xf6 ./MCAL/IIC/IIC_prog.o
+                0x00008c6c                IIC_enuReadData
  .text.GIE_enuInit
-                0x00008db2       0x12 ./MCAL/GIE/GIE_prog.o
-                0x00008db2                GIE_enuInit
+                0x00008d62       0x12 ./MCAL/GIE/GIE_prog.o
+                0x00008d62                GIE_enuInit
  .text.GIE_enuEnable
-                0x00008dc4       0x12 ./MCAL/GIE/GIE_prog.o
-                0x00008dc4                GIE_enuEnable
+                0x00008d74       0x12 ./MCAL/GIE/GIE_prog.o
+                0x00008d74                GIE_enuEnable
  .text.GIE_enuDisable
-                0x00008dd6       0x12 ./MCAL/GIE/GIE_prog.o
-                0x00008dd6                GIE_enuDisable
+                0x00008d86       0x12 ./MCAL/GIE/GIE_prog.o
+                0x00008d86                GIE_enuDisable
  .text.EXTI_enuInit
-                0x00008de8      0x36a ./MCAL/EXTI/EXTI_prog.o
-                0x00008de8                EXTI_enuInit
+                0x00008d98      0x36a ./MCAL/EXTI/EXTI_prog.o
+                0x00008d98                EXTI_enuInit
  .text.EXTI_enuEnableInterrupt
-                0x00009152       0x6a ./MCAL/EXTI/EXTI_prog.o
-                0x00009152                EXTI_enuEnableInterrupt
+                0x00009102       0x6a ./MCAL/EXTI/EXTI_prog.o
+                0x00009102                EXTI_enuEnableInterrupt
  .text.EXTI_enuDisableInterrupt
-                0x000091bc       0x6a ./MCAL/EXTI/EXTI_prog.o
-                0x000091bc                EXTI_enuDisableInterrupt
+                0x0000916c       0x6a ./MCAL/EXTI/EXTI_prog.o
+                0x0000916c                EXTI_enuDisableInterrupt
  .text.EXTI_enuSetSenseLevel
-                0x00009226      0x1a4 ./MCAL/EXTI/EXTI_prog.o
-                0x00009226                EXTI_enuSetSenseLevel
+                0x000091d6      0x1a4 ./MCAL/EXTI/EXTI_prog.o
+                0x000091d6                EXTI_enuSetSenseLevel
  .text.__vector_1
-                0x000093ca       0x66 ./MCAL/EXTI/EXTI_prog.o
-                0x000093ca                __vector_1
+                0x0000937a       0x66 ./MCAL/EXTI/EXTI_prog.o
+                0x0000937a                __vector_1
  .text.__vector_2
-                0x00009430       0x66 ./MCAL/EXTI/EXTI_prog.o
-                0x00009430                __vector_2
+                0x000093e0       0x66 ./MCAL/EXTI/EXTI_prog.o
+                0x000093e0                __vector_2
  .text.__vector_3
-                0x00009496       0x66 ./MCAL/EXTI/EXTI_prog.o
-                0x00009496                __vector_3
+                0x00009446       0x66 ./MCAL/EXTI/EXTI_prog.o
+                0x00009446                __vector_3
  .text.EXTI_enuCallBack
-                0x000094fc       0x54 ./MCAL/EXTI/EXTI_prog.o
-                0x000094fc                EXTI_enuCallBack
+                0x000094ac       0x54 ./MCAL/EXTI/EXTI_prog.o
+                0x000094ac                EXTI_enuCallBack
  .text.EEPROM_enuWriteByte
-                0x00009550       0x56 ./MCAL/EEPROM/EEPROM_prog.o
-                0x00009550                EEPROM_enuWriteByte
+                0x00009500       0x7c ./MCAL/EEPROM/EEPROM_prog.o
+                0x00009500                EEPROM_enuWriteByte
  .text.EEPROM_enuReadByte
-                0x000095a6       0x72 ./MCAL/EEPROM/EEPROM_prog.o
-                0x000095a6                EEPROM_enuReadByte
+                0x0000957c       0x74 ./MCAL/EEPROM/EEPROM_prog.o
+                0x0000957c                EEPROM_enuReadByte
  .text.DIO_enuInit
-                0x00009618       0x16 ./MCAL/DIO/DIO_prog.o
-                0x00009618                DIO_enuInit
+                0x000095f0       0x16 ./MCAL/DIO/DIO_prog.o
+                0x000095f0                DIO_enuInit
  .text.DIO_enuSetPinDirection
-                0x0000962e      0x1d8 ./MCAL/DIO/DIO_prog.o
-                0x0000962e                DIO_enuSetPinDirection
+                0x00009606      0x1d8 ./MCAL/DIO/DIO_prog.o
+                0x00009606                DIO_enuSetPinDirection
  .text.DIO_enuSetPinValue
-                0x00009806      0x1de ./MCAL/DIO/DIO_prog.o
-                0x00009806                DIO_enuSetPinValue
+                0x000097de      0x1de ./MCAL/DIO/DIO_prog.o
+                0x000097de                DIO_enuSetPinValue
  .text.DIO_enuTogglePinValue
-                0x000099e4      0x11c ./MCAL/DIO/DIO_prog.o
-                0x000099e4                DIO_enuTogglePinValue
+                0x000099bc      0x11c ./MCAL/DIO/DIO_prog.o
+                0x000099bc                DIO_enuTogglePinValue
  .text.DIO_enuGetPinValue
-                0x00009b00      0x13c ./MCAL/DIO/DIO_prog.o
-                0x00009b00                DIO_enuGetPinValue
+                0x00009ad8      0x13c ./MCAL/DIO/DIO_prog.o
+                0x00009ad8                DIO_enuGetPinValue
  .text.ADC_enuInit
-                0x00009c3c       0xc8 ./MCAL/ADC/ADC_porg.o
-                0x00009c3c                ADC_enuInit
+                0x00009c14       0xc8 ./MCAL/ADC/ADC_porg.o
+                0x00009c14                ADC_enuInit
  .text.ADC_enuSetPreScalar
-                0x00009d04       0x52 ./MCAL/ADC/ADC_porg.o
-                0x00009d04                ADC_enuSetPreScalar
+                0x00009cdc       0x52 ./MCAL/ADC/ADC_porg.o
+                0x00009cdc                ADC_enuSetPreScalar
  .text.ADC_enuSetRefVolt
-                0x00009d56       0x6a ./MCAL/ADC/ADC_porg.o
-                0x00009d56                ADC_enuSetRefVolt
+                0x00009d2e       0x6a ./MCAL/ADC/ADC_porg.o
+                0x00009d2e                ADC_enuSetRefVolt
  .text.ADC_enuSelectChannel
-                0x00009dc0       0x4e ./MCAL/ADC/ADC_porg.o
-                0x00009dc0                ADC_enuSelectChannel
+                0x00009d98       0x4e ./MCAL/ADC/ADC_porg.o
+                0x00009d98                ADC_enuSelectChannel
  .text.ADC_enuStartConversion
-                0x00009e0e       0x1e ./MCAL/ADC/ADC_porg.o
-                0x00009e0e                ADC_enuStartConversion
+                0x00009de6       0x1e ./MCAL/ADC/ADC_porg.o
+                0x00009de6                ADC_enuStartConversion
  .text.ADC_enuEnableAutoTrigger
-                0x00009e2c       0x68 ./MCAL/ADC/ADC_porg.o
-                0x00009e2c                ADC_enuEnableAutoTrigger
+                0x00009e04       0x68 ./MCAL/ADC/ADC_porg.o
+                0x00009e04                ADC_enuEnableAutoTrigger
  .text.ADC_enuDisableAutoTrigger
-                0x00009e94       0x1e ./MCAL/ADC/ADC_porg.o
-                0x00009e94                ADC_enuDisableAutoTrigger
+                0x00009e6c       0x1e ./MCAL/ADC/ADC_porg.o
+                0x00009e6c                ADC_enuDisableAutoTrigger
  .text.ADC_enuRead
-                0x00009eb2       0x66 ./MCAL/ADC/ADC_porg.o
-                0x00009eb2                ADC_enuRead
+                0x00009e8a       0x66 ./MCAL/ADC/ADC_porg.o
+                0x00009e8a                ADC_enuRead
  .text.ADC_enuReadHigh
-                0x00009f18       0x6e ./MCAL/ADC/ADC_porg.o
-                0x00009f18                ADC_enuReadHigh
+                0x00009ef0       0x6e ./MCAL/ADC/ADC_porg.o
+                0x00009ef0                ADC_enuReadHigh
  .text.ADC_enuPollingRead
-                0x00009f86       0x8a ./MCAL/ADC/ADC_porg.o
-                0x00009f86                ADC_enuPollingRead
+                0x00009f5e       0x8a ./MCAL/ADC/ADC_porg.o
+                0x00009f5e                ADC_enuPollingRead
  .text.ADC_enuPollingReadHigh
-                0x0000a010       0x92 ./MCAL/ADC/ADC_porg.o
-                0x0000a010                ADC_enuPollingReadHigh
+                0x00009fe8       0x92 ./MCAL/ADC/ADC_porg.o
+                0x00009fe8                ADC_enuPollingReadHigh
  .text.ADC_enuCallBack
-                0x0000a0a2       0x3e ./MCAL/ADC/ADC_porg.o
-                0x0000a0a2                ADC_enuCallBack
+                0x0000a07a       0x3e ./MCAL/ADC/ADC_porg.o
+                0x0000a07a                ADC_enuCallBack
  .text.ADC_enuEnable
-                0x0000a0e0       0x1e ./MCAL/ADC/ADC_porg.o
-                0x0000a0e0                ADC_enuEnable
+                0x0000a0b8       0x1e ./MCAL/ADC/ADC_porg.o
+                0x0000a0b8                ADC_enuEnable
  .text.ADC_enuDisable
-                0x0000a0fe       0x1e ./MCAL/ADC/ADC_porg.o
-                0x0000a0fe                ADC_enuDisable
+                0x0000a0d6       0x1e ./MCAL/ADC/ADC_porg.o
+                0x0000a0d6                ADC_enuDisable
  .text.ADC_enuEnableInterrupt
-                0x0000a11c       0x1e ./MCAL/ADC/ADC_porg.o
-                0x0000a11c                ADC_enuEnableInterrupt
+                0x0000a0f4       0x1e ./MCAL/ADC/ADC_porg.o
+                0x0000a0f4                ADC_enuEnableInterrupt
  .text.ADC_enuDisableInterrupt
-                0x0000a13a       0x1e ./MCAL/ADC/ADC_porg.o
-                0x0000a13a                ADC_enuDisableInterrupt
+                0x0000a112       0x1e ./MCAL/ADC/ADC_porg.o
+                0x0000a112                ADC_enuDisableInterrupt
  .text.__vector_16
-                0x0000a158       0x66 ./MCAL/ADC/ADC_porg.o
-                0x0000a158                __vector_16
+                0x0000a130       0x66 ./MCAL/ADC/ADC_porg.o
+                0x0000a130                __vector_16
  .text.Switch_enuInit
-                0x0000a1be       0xde ./HAL/Switch/Switch_prog.o
-                0x0000a1be                Switch_enuInit
+                0x0000a196       0xde ./HAL/Switch/Switch_prog.o
+                0x0000a196                Switch_enuInit
  .text.Switch_enuGetPressed
-                0x0000a29c       0x7c ./HAL/Switch/Switch_prog.o
-                0x0000a29c                Switch_enuGetPressed
+                0x0000a274       0x7c ./HAL/Switch/Switch_prog.o
+                0x0000a274                Switch_enuGetPressed
  .text.StepMotor_enuInit
-                0x0000a318       0xd0 ./HAL/StepMotor/StepMotor_prog.o
-                0x0000a318                StepMotor_enuInit
+                0x0000a2f0       0xd0 ./HAL/StepMotor/StepMotor_prog.o
+                0x0000a2f0                StepMotor_enuInit
  .text.StepMotor_enuFullCycle
-                0x0000a3e8      0x17a ./HAL/StepMotor/StepMotor_prog.o
-                0x0000a3e8                StepMotor_enuFullCycle
+                0x0000a3c0      0x17a ./HAL/StepMotor/StepMotor_prog.o
+                0x0000a3c0                StepMotor_enuFullCycle
  .text.StepMotor_enuGoToAngle
-                0x0000a562      0x1cc ./HAL/StepMotor/StepMotor_prog.o
-                0x0000a562                StepMotor_enuGoToAngle
+                0x0000a53a      0x1cc ./HAL/StepMotor/StepMotor_prog.o
+                0x0000a53a                StepMotor_enuGoToAngle
  .text.SevSeg_enuInit
-                0x0000a72e      0x1aa ./HAL/SevSeg/SevSeg_prog.o
-                0x0000a72e                SevSeg_enuInit
+                0x0000a706      0x1aa ./HAL/SevSeg/SevSeg_prog.o
+                0x0000a706                SevSeg_enuInit
  .text.SevSeg_enuSetDigitValue
-                0x0000a8d8       0xec ./HAL/SevSeg/SevSeg_prog.o
-                0x0000a8d8                SevSeg_enuSetDigitValue
+                0x0000a8b0       0xec ./HAL/SevSeg/SevSeg_prog.o
+                0x0000a8b0                SevSeg_enuSetDigitValue
  .text.SevSeg_enuSetDIPValue
-                0x0000a9c4       0xa2 ./HAL/SevSeg/SevSeg_prog.o
-                0x0000a9c4                SevSeg_enuSetDIPValue
+                0x0000a99c       0xa2 ./HAL/SevSeg/SevSeg_prog.o
+                0x0000a99c                SevSeg_enuSetDIPValue
  .text.SevSeg_enuFrameDelay
-                0x0000aa66       0x5a ./HAL/SevSeg/SevSeg_prog.o
-                0x0000aa66                SevSeg_enuFrameDelay
+                0x0000aa3e       0x5a ./HAL/SevSeg/SevSeg_prog.o
+                0x0000aa3e                SevSeg_enuFrameDelay
  .text.SevSeg_enuModuleControl
-                0x0000aac0      0x10a ./HAL/SevSeg/SevSeg_prog.o
-                0x0000aac0                SevSeg_enuModuleControl
+                0x0000aa98      0x10a ./HAL/SevSeg/SevSeg_prog.o
+                0x0000aa98                SevSeg_enuModuleControl
  .text.LM35_enuInit
-                0x0000abca       0x8c ./HAL/LM35/LM35_prog.o
-                0x0000abca                LM35_enuInit
+                0x0000aba2       0x8c ./HAL/LM35/LM35_prog.o
+                0x0000aba2                LM35_enuInit
  .text.LD_enuInit
-                0x0000ac56       0xae ./HAL/LD/LD_prog.o
-                0x0000ac56                LD_enuInit
+                0x0000ac2e       0xae ./HAL/LD/LD_prog.o
+                0x0000ac2e                LD_enuInit
  .text.LD_enuSetState
-                0x0000ad04       0x7a ./HAL/LD/LD_prog.o
-                0x0000ad04                LD_enuSetState
+                0x0000acdc       0x7a ./HAL/LD/LD_prog.o
+                0x0000acdc                LD_enuSetState
  .text.LCD_enuInit
-                0x0000ad7e      0x39c ./HAL/LCD/LCD_prog.o
-                0x0000ad7e                LCD_enuInit
+                0x0000ad56      0x39c ./HAL/LCD/LCD_prog.o
+                0x0000ad56                LCD_enuInit
  .text.LCD_enuWriteData
-                0x0000b11a       0x2e ./HAL/LCD/LCD_prog.o
-                0x0000b11a                LCD_enuWriteData
+                0x0000b0f2       0x2e ./HAL/LCD/LCD_prog.o
+                0x0000b0f2                LCD_enuWriteData
  .text.LCD_enuWriteCommand
-                0x0000b148       0x2e ./HAL/LCD/LCD_prog.o
-                0x0000b148                LCD_enuWriteCommand
+                0x0000b120       0x2e ./HAL/LCD/LCD_prog.o
+                0x0000b120                LCD_enuWriteCommand
  .text.LCD_enuWriteString
-                0x0000b176       0x50 ./HAL/LCD/LCD_prog.o
-                0x0000b176                LCD_enuWriteString
+                0x0000b14e       0x50 ./HAL/LCD/LCD_prog.o
+                0x0000b14e                LCD_enuWriteString
  .text.LCD_enuGoToPosition
-                0x0000b1c6       0x6c ./HAL/LCD/LCD_prog.o
-                0x0000b1c6                LCD_enuGoToPosition
+                0x0000b19e       0x6c ./HAL/LCD/LCD_prog.o
+                0x0000b19e                LCD_enuGoToPosition
  .text.LCD_enuWriteNLatch
-                0x0000b232      0x498 ./HAL/LCD/LCD_prog.o
+                0x0000b20a      0x498 ./HAL/LCD/LCD_prog.o
  .text.LCD_enuWriteIntegerNum
-                0x0000b6ca      0x23a ./HAL/LCD/LCD_prog.o
-                0x0000b6ca                LCD_enuWriteIntegerNum
+                0x0000b6a2      0x23a ./HAL/LCD/LCD_prog.o
+                0x0000b6a2                LCD_enuWriteIntegerNum
  .text.LCD_enuWriteFloatNum
-                0x0000b904      0x39e ./HAL/LCD/LCD_prog.o
-                0x0000b904                LCD_enuWriteFloatNum
+                0x0000b8dc      0x39e ./HAL/LCD/LCD_prog.o
+                0x0000b8dc                LCD_enuWriteFloatNum
  .text.LCD_enuWriteExtraPattern
-                0x0000bca2      0x15c ./HAL/LCD/LCD_prog.o
-                0x0000bca2                LCD_enuWriteExtraPattern
+                0x0000bc7a      0x15c ./HAL/LCD/LCD_prog.o
+                0x0000bc7a                LCD_enuWriteExtraPattern
  .text.LCD_enuSetTextDirection
-                0x0000bdfe       0x8c ./HAL/LCD/LCD_prog.o
-                0x0000bdfe                LCD_enuSetTextDirection
+                0x0000bdd6       0x8c ./HAL/LCD/LCD_prog.o
+                0x0000bdd6                LCD_enuSetTextDirection
  .text.L293D_enuInit
-                0x0000be8a      0x2f8 ./HAL/L293D/L293D_prog.o
-                0x0000be8a                L293D_enuInit
+                0x0000be62      0x2f8 ./HAL/L293D/L293D_prog.o
+                0x0000be62                L293D_enuInit
  .text.Le93D_enuSetDirectio
-                0x0000c182      0x23a ./HAL/L293D/L293D_prog.o
-                0x0000c182                Le93D_enuSetDirectio
+                0x0000c15a      0x23a ./HAL/L293D/L293D_prog.o
+                0x0000c15a                Le93D_enuSetDirectio
  .text.Le93D_enuSetSpeed
-                0x0000c3bc      0x14e ./HAL/L293D/L293D_prog.o
-                0x0000c3bc                Le93D_enuSetSpeed
+                0x0000c394      0x14e ./HAL/L293D/L293D_prog.o
+                0x0000c394                Le93D_enuSetSpeed
  .text.Keypad_enuInit
-                0x0000c50a      0x198 ./HAL/Keypad/Keypad_prog.o
-                0x0000c50a                Keypad_enuInit
+                0x0000c4e2      0x198 ./HAL/Keypad/Keypad_prog.o
+                0x0000c4e2                Keypad_enuInit
  .text.Keypad_enuGetPressedKey
-                0x0000c6a2      0x300 ./HAL/Keypad/Keypad_prog.o
-                0x0000c6a2                Keypad_enuGetPressedKey
+                0x0000c67a      0x300 ./HAL/Keypad/Keypad_prog.o
+                0x0000c67a                Keypad_enuGetPressedKey
  .text.Keypad_Sleep
-                0x0000c9a2       0xe2 ./HAL/Keypad/Keypad_prog.o
-                0x0000c9a2                Keypad_Sleep
+                0x0000c97a       0xe2 ./HAL/Keypad/Keypad_prog.o
+                0x0000c97a                Keypad_Sleep
  .text.Keypad_Awake
-                0x0000ca84       0xfa ./HAL/Keypad/Keypad_prog.o
-                0x0000ca84                Keypad_Awake
+                0x0000ca5c       0xfa ./HAL/Keypad/Keypad_prog.o
+                0x0000ca5c                Keypad_Awake
  .text.EXT_EEPROM_enuInit
-                0x0000cb7e       0x12 ./HAL/EXT_EEPROM/EXT_EEPROM_prog.o
-                0x0000cb7e                EXT_EEPROM_enuInit
+                0x0000cb56       0x12 ./HAL/EXT_EEPROM/EXT_EEPROM_prog.o
+                0x0000cb56                EXT_EEPROM_enuInit
  .text.EXT_EEPROM_enuWriteData
-                0x0000cb90      0x1e4 ./HAL/EXT_EEPROM/EXT_EEPROM_prog.o
-                0x0000cb90                EXT_EEPROM_enuWriteData
+                0x0000cb68      0x1e4 ./HAL/EXT_EEPROM/EXT_EEPROM_prog.o
+                0x0000cb68                EXT_EEPROM_enuWriteData
  .text.EXT_EEPROM_enuReadData
-                0x0000cd74      0x1fc ./HAL/EXT_EEPROM/EXT_EEPROM_prog.o
-                0x0000cd74                EXT_EEPROM_enuReadData
- .text.main     0x0000cf70       0x12 ./App/main.o
-                0x0000cf70                main
- .text.libgcc   0x0000cf82       0x3e d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                0x0000cf82                __mulsi3
- .text.libgcc   0x0000cfc0       0x28 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x0000cfc0                __udivmodhi4
- .text.libgcc   0x0000cfe8       0x26 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
-                0x0000cfe8                __divmodhi4
-                0x0000cfe8                _div
- .text.libgcc   0x0000d00e       0x44 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x0000d00e                __udivmodsi4
- .text.libgcc   0x0000d052       0x36 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
-                0x0000d052                __divmodsi4
- .text.libgcc   0x0000d088        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x0000d088        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x0000d088        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x0000d088       0x38 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x0000d088                __prologue_saves__
- .text.libgcc   0x0000d0c0       0x36 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x0000d0c0                __epilogue_restores__
-                0x0000d0f6                . = ALIGN (0x2)
+                0x0000cd4c      0x1fc ./HAL/EXT_EEPROM/EXT_EEPROM_prog.o
+                0x0000cd4c                EXT_EEPROM_enuReadData
+ .text.main     0x0000cf48       0x5c ./App/main.o
+                0x0000cf48                main
+ .text.libgcc   0x0000cfa4       0x3e d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x0000cfa4                __mulsi3
+ .text.libgcc   0x0000cfe2       0x28 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x0000cfe2                __udivmodhi4
+ .text.libgcc   0x0000d00a       0x26 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
+                0x0000d00a                __divmodhi4
+                0x0000d00a                _div
+ .text.libgcc   0x0000d030       0x44 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x0000d030                __udivmodsi4
+ .text.libgcc   0x0000d074       0x36 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+                0x0000d074                __divmodsi4
+ .text.libgcc   0x0000d0aa        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x0000d0aa        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000d0aa        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x0000d0aa       0x38 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x0000d0aa                __prologue_saves__
+ .text.libgcc   0x0000d0e2       0x36 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x0000d0e2                __epilogue_restores__
+                0x0000d118                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000d0f6        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x0000d0f6                exit
-                0x0000d0f6                _exit
+ .fini9         0x0000d118        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x0000d118                exit
+                0x0000d118                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -792,11 +792,11 @@ LOAD d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000d0f6        0x4 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x0000d118        0x4 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000d0fa                _etext = .
+                0x0000d11c                _etext = .
 
-.data           0x00800060      0x1e2 load address 0x0000d0fa
+.data           0x00800060      0x1e6 load address 0x0000d11c
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -828,233 +828,234 @@ LOAD d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr
  .data          0x00800060        0x0 ./HAL/Keypad/Keypad_prog.o
  .data          0x00800060        0x0 ./HAL/EXT_EEPROM/EXT_EEPROM_config.o
  .data          0x00800060        0x0 ./HAL/EXT_EEPROM/EXT_EEPROM_prog.o
- .data          0x00800060        0x0 ./App/main.o
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_muldi3.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lshrdi3.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivdi3.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_umoddi3.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_si_to_sf.o)
- .data          0x00800060        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .data          0x00800060        0x8 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
-                0x00800060                __thenan_sf
- .data          0x00800068        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
- .data          0x00800068        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
- .data          0x00800068        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
- .data          0x00800068      0x100 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
-                0x00800068                __clz_tab
- .data          0x00800168        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
- .data          0x00800168        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .data          0x00800168        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
- .data          0x00800168        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+ .data          0x00800060        0x3 ./App/main.o
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_muldi3.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lshrdi3.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivdi3.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_umoddi3.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_si_to_sf.o)
+ .data          0x00800063        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .data          0x00800063        0x8 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+                0x00800063                __thenan_sf
+ .data          0x0080006b        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
+ .data          0x0080006b        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .data          0x0080006b        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .data          0x0080006b      0x100 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
+                0x0080006b                __clz_tab
+ .data          0x0080016b        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
+ .data          0x0080016b        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .data          0x0080016b        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .data          0x0080016b        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
  *(.data*)
  .data.Global_AstrUART_Pointers
-                0x00800168        0xf ./MCAL/UART/UART_prog.o
-                0x00800168                Global_AstrUART_Pointers
+                0x0080016b        0xf ./MCAL/UART/UART_prog.o
+                0x0080016b                Global_AstrUART_Pointers
  .data.Timers_u8MaxNum
-                0x00800177        0x1 ./MCAL/TIMER/TIMER_config.o
-                0x00800177                Timers_u8MaxNum
+                0x0080017a        0x1 ./MCAL/TIMER/TIMER_config.o
+                0x0080017a                Timers_u8MaxNum
  .data.Timer0Max
-                0x00800178        0x1 ./MCAL/TIMER/TIMER_config.o
-                0x00800178                Timer0Max
+                0x0080017b        0x1 ./MCAL/TIMER/TIMER_config.o
+                0x0080017b                Timer0Max
  .data.Timer2Max
-                0x00800179        0x1 ./MCAL/TIMER/TIMER_config.o
-                0x00800179                Timer2Max
- .data.Timers   0x0080017a        0xa ./MCAL/TIMER/TIMER_config.o
-                0x0080017a                Timers
+                0x0080017c        0x1 ./MCAL/TIMER/TIMER_config.o
+                0x0080017c                Timer2Max
+ .data.Timers   0x0080017d        0xa ./MCAL/TIMER/TIMER_config.o
+                0x0080017d                Timers
  .data.Global_AstrTimerPointers
-                0x00800184       0x14 ./MCAL/TIMER/TIMER_prog.o
-                0x00800184                Global_AstrTimerPointers
+                0x00800187       0x14 ./MCAL/TIMER/TIMER_prog.o
+                0x00800187                Global_AstrTimerPointers
  .data.PWM_u8MaxNum
-                0x00800198        0x1 ./MCAL/PWM/PWM_config.o
-                0x00800198                PWM_u8MaxNum
+                0x0080019b        0x1 ./MCAL/PWM/PWM_config.o
+                0x0080019b                PWM_u8MaxNum
  .data.Timer1Max
-                0x00800199        0x2 ./MCAL/PWM/PWM_config.o
-                0x00800199                Timer1Max
- .data.PWMs     0x0080019b       0x14 ./MCAL/PWM/PWM_config.o
-                0x0080019b                PWMs
+                0x0080019c        0x2 ./MCAL/PWM/PWM_config.o
+                0x0080019c                Timer1Max
+ .data.PWMs     0x0080019e       0x14 ./MCAL/PWM/PWM_config.o
+                0x0080019e                PWMs
  .data.Global_AstrPWM_Pointers
-                0x008001af        0xf ./MCAL/PWM/PWM_prog.o
-                0x008001af                Global_AstrPWM_Pointers
+                0x008001b2        0xf ./MCAL/PWM/PWM_prog.o
+                0x008001b2                Global_AstrPWM_Pointers
  .data.EXTI_u8EXTI_Num
-                0x008001be        0x1 ./MCAL/EXTI/EXTI_config.o
-                0x008001be                EXTI_u8EXTI_Num
+                0x008001c1        0x1 ./MCAL/EXTI/EXTI_config.o
+                0x008001c1                EXTI_u8EXTI_Num
  .data.EXTI_AstrEXTI_Config
-                0x008001bf        0x9 ./MCAL/EXTI/EXTI_config.o
-                0x008001bf                EXTI_AstrEXTI_Config
+                0x008001c2        0x9 ./MCAL/EXTI/EXTI_config.o
+                0x008001c2                EXTI_AstrEXTI_Config
  .data.Switch_u8SwitchesMaxNum
-                0x008001c8        0x1 ./HAL/Switch/Switch_config.o
-                0x008001c8                Switch_u8SwitchesMaxNum
- .data.Switch   0x008001c9        0x9 ./HAL/Switch/Switch_config.o
-                0x008001c9                Switch
+                0x008001cb        0x1 ./HAL/Switch/Switch_config.o
+                0x008001cb                Switch_u8SwitchesMaxNum
+ .data.Switch   0x008001cc        0x9 ./HAL/Switch/Switch_config.o
+                0x008001cc                Switch
  .data.SevSeg_u8MaxModules
-                0x008001d2        0x1 ./HAL/SevSeg/SevSeg_config.o
-                0x008001d2                SevSeg_u8MaxModules
+                0x008001d5        0x1 ./HAL/SevSeg/SevSeg_config.o
+                0x008001d5                SevSeg_u8MaxModules
  .data.ModuleValuePins
-                0x008001d3        0x1 ./HAL/SevSeg/SevSeg_config.o
-                0x008001d3                ModuleValuePins
+                0x008001d6        0x1 ./HAL/SevSeg/SevSeg_config.o
+                0x008001d6                ModuleValuePins
  .data.ModuleControlPins
-                0x008001d4        0x1 ./HAL/SevSeg/SevSeg_config.o
-                0x008001d4                ModuleControlPins
+                0x008001d7        0x1 ./HAL/SevSeg/SevSeg_config.o
+                0x008001d7                ModuleControlPins
  .data.SSegModule
-                0x008001d5       0x1c ./HAL/SevSeg/SevSeg_config.o
-                0x008001d5                SSegModule
+                0x008001d8       0x1c ./HAL/SevSeg/SevSeg_config.o
+                0x008001d8                SSegModule
  .data.LD_u8LD_MaxNum
-                0x008001f1        0x1 ./HAL/LD/LD_config.o
-                0x008001f1                LD_u8LD_MaxNum
- .data.LD       0x008001f2        0x6 ./HAL/LD/LD_config.o
-                0x008001f2                LD
+                0x008001f4        0x1 ./HAL/LD/LD_config.o
+                0x008001f4                LD_u8LD_MaxNum
+ .data.LD       0x008001f5        0x6 ./HAL/LD/LD_config.o
+                0x008001f5                LD
  .data.Motors_u8MaxNum
-                0x008001f8        0x1 ./HAL/L293D/L293D_config.o
-                0x008001f8                Motors_u8MaxNum
- .data.Motors   0x008001f9       0x10 ./HAL/L293D/L293D_config.o
-                0x008001f9                Motors
+                0x008001fb        0x1 ./HAL/L293D/L293D_config.o
+                0x008001fb                Motors_u8MaxNum
+ .data.Motors   0x008001fc       0x10 ./HAL/L293D/L293D_config.o
+                0x008001fc                Motors
  .data.Kpad_u8MaxSideKeys
-                0x00800209        0x1 ./HAL/Keypad/Keypad_config.o
-                0x00800209                Kpad_u8MaxSideKeys
+                0x0080020c        0x1 ./HAL/Keypad/Keypad_config.o
+                0x0080020c                Kpad_u8MaxSideKeys
  .data.Kpad_u8RowNum
-                0x0080020a        0x1 ./HAL/Keypad/Keypad_config.o
-                0x0080020a                Kpad_u8RowNum
+                0x0080020d        0x1 ./HAL/Keypad/Keypad_config.o
+                0x0080020d                Kpad_u8RowNum
  .data.Kpad_u8ColNum
-                0x0080020b        0x1 ./HAL/Keypad/Keypad_config.o
-                0x0080020b                Kpad_u8ColNum
+                0x0080020e        0x1 ./HAL/Keypad/Keypad_config.o
+                0x0080020e                Kpad_u8ColNum
  .data.Kpad_u8KeyValues
-                0x0080020c       0x10 ./HAL/Keypad/Keypad_config.o
-                0x0080020c                Kpad_u8KeyValues
+                0x0080020f       0x10 ./HAL/Keypad/Keypad_config.o
+                0x0080020f                Kpad_u8KeyValues
  .data.KeyPadCols
-                0x0080021c        0x8 ./HAL/Keypad/Keypad_config.o
-                0x0080021c                KeyPadCols
+                0x0080021f        0x8 ./HAL/Keypad/Keypad_config.o
+                0x0080021f                KeyPadCols
  .data.KeyPadRows
-                0x00800224        0xc ./HAL/Keypad/Keypad_config.o
-                0x00800224                KeyPadRows
+                0x00800227        0xc ./HAL/Keypad/Keypad_config.o
+                0x00800227                KeyPadRows
  .data.EXT_EEPROM_Size
-                0x00800230        0x1 ./HAL/EXT_EEPROM/EXT_EEPROM_config.o
-                0x00800230                EXT_EEPROM_Size
+                0x00800233        0x1 ./HAL/EXT_EEPROM/EXT_EEPROM_config.o
+                0x00800233                EXT_EEPROM_Size
  .data.EXT_EEPROM_MaxNum
-                0x00800231        0x1 ./HAL/EXT_EEPROM/EXT_EEPROM_config.o
-                0x00800231                EXT_EEPROM_MaxNum
+                0x00800234        0x1 ./HAL/EXT_EEPROM/EXT_EEPROM_config.o
+                0x00800234                EXT_EEPROM_MaxNum
  .data.EXT_EEPROM
-                0x00800232       0x10 ./HAL/EXT_EEPROM/EXT_EEPROM_config.o
-                0x00800232                EXT_EEPROM
+                0x00800235       0x10 ./HAL/EXT_EEPROM/EXT_EEPROM_config.o
+                0x00800235                EXT_EEPROM
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x00800242                . = ALIGN (0x2)
-                0x00800242                _edata = .
-                0x00800242                PROVIDE (__data_end, .)
+                0x00800246                . = ALIGN (0x2)
+ *fill*         0x00800245        0x1 00
+                0x00800246                _edata = .
+                0x00800246                PROVIDE (__data_end, .)
 
-.bss            0x00800242       0x1e
-                0x00800242                PROVIDE (__bss_start, .)
+.bss            0x00800246       0x1e
+                0x00800246                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
- .bss           0x00800242        0x0 ./MCAL/WDT/WDT_prog.o
- .bss           0x00800242        0x0 ./MCAL/UART/UART_prog.o
- .bss           0x00800242        0x0 ./MCAL/TIMER/TIMER_config.o
- .bss           0x00800242        0x0 ./MCAL/TIMER/TIMER_prog.o
- .bss           0x00800242        0x0 ./MCAL/PWM/PWM_config.o
- .bss           0x00800242        0x0 ./MCAL/PWM/PWM_prog.o
- .bss           0x00800242        0x0 ./MCAL/IIC/IIC_prog.o
- .bss           0x00800242        0x0 ./MCAL/GIE/GIE_prog.o
- .bss           0x00800242        0x0 ./MCAL/EXTI/EXTI_config.o
- .bss           0x00800242        0x0 ./MCAL/EXTI/EXTI_prog.o
- .bss           0x00800242        0x0 ./MCAL/EEPROM/EEPROM_prog.o
- .bss           0x00800242        0x0 ./MCAL/DIO/DIO_prog.o
- .bss           0x00800242        0x0 ./MCAL/ADC/ADC_porg.o
- .bss           0x00800242        0x0 ./HAL/Switch/Switch_config.o
- .bss           0x00800242        0x0 ./HAL/Switch/Switch_prog.o
- .bss           0x00800242        0x0 ./HAL/StepMotor/StepMotor_prog.o
- .bss           0x00800242        0x0 ./HAL/SevSeg/SevSeg_config.o
- .bss           0x00800242        0x0 ./HAL/SevSeg/SevSeg_prog.o
- .bss           0x00800242        0x0 ./HAL/LM35/LM35_prog.o
- .bss           0x00800242        0x0 ./HAL/LD/LD_config.o
- .bss           0x00800242        0x0 ./HAL/LD/LD_prog.o
- .bss           0x00800242        0x0 ./HAL/LCD/LCD_prog.o
- .bss           0x00800242        0x0 ./HAL/L293D/L293D_config.o
- .bss           0x00800242        0x0 ./HAL/L293D/L293D_prog.o
- .bss           0x00800242        0x0 ./HAL/Keypad/Keypad_config.o
- .bss           0x00800242        0x0 ./HAL/Keypad/Keypad_prog.o
- .bss           0x00800242        0x0 ./HAL/EXT_EEPROM/EXT_EEPROM_config.o
- .bss           0x00800242        0x0 ./HAL/EXT_EEPROM/EXT_EEPROM_prog.o
- .bss           0x00800242        0x0 ./App/main.o
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_muldi3.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lshrdi3.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivdi3.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_umoddi3.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_si_to_sf.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
- .bss           0x00800242        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
+ .bss           0x00800246        0x0 ./MCAL/WDT/WDT_prog.o
+ .bss           0x00800246        0x0 ./MCAL/UART/UART_prog.o
+ .bss           0x00800246        0x0 ./MCAL/TIMER/TIMER_config.o
+ .bss           0x00800246        0x0 ./MCAL/TIMER/TIMER_prog.o
+ .bss           0x00800246        0x0 ./MCAL/PWM/PWM_config.o
+ .bss           0x00800246        0x0 ./MCAL/PWM/PWM_prog.o
+ .bss           0x00800246        0x0 ./MCAL/IIC/IIC_prog.o
+ .bss           0x00800246        0x0 ./MCAL/GIE/GIE_prog.o
+ .bss           0x00800246        0x0 ./MCAL/EXTI/EXTI_config.o
+ .bss           0x00800246        0x0 ./MCAL/EXTI/EXTI_prog.o
+ .bss           0x00800246        0x0 ./MCAL/EEPROM/EEPROM_prog.o
+ .bss           0x00800246        0x0 ./MCAL/DIO/DIO_prog.o
+ .bss           0x00800246        0x0 ./MCAL/ADC/ADC_porg.o
+ .bss           0x00800246        0x0 ./HAL/Switch/Switch_config.o
+ .bss           0x00800246        0x0 ./HAL/Switch/Switch_prog.o
+ .bss           0x00800246        0x0 ./HAL/StepMotor/StepMotor_prog.o
+ .bss           0x00800246        0x0 ./HAL/SevSeg/SevSeg_config.o
+ .bss           0x00800246        0x0 ./HAL/SevSeg/SevSeg_prog.o
+ .bss           0x00800246        0x0 ./HAL/LM35/LM35_prog.o
+ .bss           0x00800246        0x0 ./HAL/LD/LD_config.o
+ .bss           0x00800246        0x0 ./HAL/LD/LD_prog.o
+ .bss           0x00800246        0x0 ./HAL/LCD/LCD_prog.o
+ .bss           0x00800246        0x0 ./HAL/L293D/L293D_config.o
+ .bss           0x00800246        0x0 ./HAL/L293D/L293D_prog.o
+ .bss           0x00800246        0x0 ./HAL/Keypad/Keypad_config.o
+ .bss           0x00800246        0x0 ./HAL/Keypad/Keypad_prog.o
+ .bss           0x00800246        0x0 ./HAL/EXT_EEPROM/EXT_EEPROM_config.o
+ .bss           0x00800246        0x0 ./HAL/EXT_EEPROM/EXT_EEPROM_prog.o
+ .bss           0x00800246        0x0 ./App/main.o
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodhi4.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_divmodsi4.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_muldi3.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lshrdi3.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivdi3.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_umoddi3.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_gt_sf.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_lt_sf.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_si_to_sf.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_usi_to_sf.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clz.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clzsi2.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_pack_sf.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
+ .bss           0x00800246        0x0 d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
  *(.bss*)
  .bss.Global_u8OCR0_Value
-                0x00800242        0x1 ./MCAL/TIMER/TIMER_prog.o
+                0x00800246        0x1 ./MCAL/TIMER/TIMER_prog.o
  .bss.Global_u8OCR2_Value
-                0x00800243        0x1 ./MCAL/TIMER/TIMER_prog.o
+                0x00800247        0x1 ./MCAL/TIMER/TIMER_prog.o
  .bss.Global_u32Timer0_Clk
-                0x00800244        0x4 ./MCAL/TIMER/TIMER_prog.o
- .bss.Global_u32Timer2_Clk
                 0x00800248        0x4 ./MCAL/TIMER/TIMER_prog.o
+ .bss.Global_u32Timer2_Clk
+                0x0080024c        0x4 ./MCAL/TIMER/TIMER_prog.o
  .bss.Global_u16OCR1A_Value
-                0x0080024c        0x2 ./MCAL/PWM/PWM_prog.o
- .bss.Global_u16OCR1B_Value
-                0x0080024e        0x2 ./MCAL/PWM/PWM_prog.o
- .bss.Global_u16ICR1_Value
                 0x00800250        0x2 ./MCAL/PWM/PWM_prog.o
+ .bss.Global_u16OCR1B_Value
+                0x00800252        0x2 ./MCAL/PWM/PWM_prog.o
+ .bss.Global_u16ICR1_Value
+                0x00800254        0x2 ./MCAL/PWM/PWM_prog.o
  .bss.Global_u32Timer1_Clk
-                0x00800252        0x4 ./MCAL/PWM/PWM_prog.o
+                0x00800256        0x4 ./MCAL/PWM/PWM_prog.o
  .bss.EXTI_ApFunction_AppFun
-                0x00800256        0x6 ./MCAL/EXTI/EXTI_prog.o
-                0x00800256                EXTI_ApFunction_AppFun
+                0x0080025a        0x6 ./MCAL/EXTI/EXTI_prog.o
+                0x0080025a                EXTI_ApFunction_AppFun
  .bss.ADC_pFunISRFun
-                0x0080025c        0x2 ./MCAL/ADC/ADC_porg.o
+                0x00800260        0x2 ./MCAL/ADC/ADC_porg.o
  *(COMMON)
- COMMON         0x0080025e        0x2 ./HAL/StepMotor/StepMotor_prog.o
-                0x0080025e                Global_u16FullCycleSteps
-                0x00800260                PROVIDE (__bss_end, .)
-                0x0000d0fa                __data_load_start = LOADADDR (.data)
-                0x0000d2dc                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800262        0x2 ./HAL/StepMotor/StepMotor_prog.o
+                0x00800262                Global_u16FullCycleSteps
+                0x00800264                PROVIDE (__bss_end, .)
+                0x0000d11c                __data_load_start = LOADADDR (.data)
+                0x0000d302                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800260        0x0
-                0x00800260                PROVIDE (__noinit_start, .)
+.noinit         0x00800264        0x0
+                0x00800264                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800260                PROVIDE (__noinit_end, .)
-                0x00800260                _end = .
-                0x00800260                PROVIDE (__heap_start, .)
+                0x00800264                PROVIDE (__noinit_end, .)
+                0x00800264                _end = .
+                0x00800264                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -1072,69 +1073,69 @@ LOAD d:/amit_course/masters/drive/sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr
 .signature
  *(.signature*)
 
-.stab           0x00000000     0xb058
+.stab           0x00000000     0xb280
  *(.stab)
  .stab          0x00000000      0x474 ./MCAL/WDT/WDT_prog.o
- .stab          0x00000474      0x7d4 ./MCAL/UART/UART_prog.o
-                                0x7e0 (size before relaxing)
- .stab          0x00000c48      0x240 ./MCAL/TIMER/TIMER_config.o
+ .stab          0x00000474      0x7ec ./MCAL/UART/UART_prog.o
+                                0x7f8 (size before relaxing)
+ .stab          0x00000c60      0x240 ./MCAL/TIMER/TIMER_config.o
                                 0x24c (size before relaxing)
- .stab          0x00000e88     0x1848 ./MCAL/TIMER/TIMER_prog.o
+ .stab          0x00000ea0     0x1848 ./MCAL/TIMER/TIMER_prog.o
                                0x195c (size before relaxing)
- .stab          0x000026d0      0x204 ./MCAL/PWM/PWM_config.o
+ .stab          0x000026e8      0x204 ./MCAL/PWM/PWM_config.o
                                 0x210 (size before relaxing)
- .stab          0x000028d4     0x14ac ./MCAL/PWM/PWM_prog.o
+ .stab          0x000028ec     0x14ac ./MCAL/PWM/PWM_prog.o
                                0x14e8 (size before relaxing)
- .stab          0x00003d80      0x87c ./MCAL/IIC/IIC_prog.o
-                                0x888 (size before relaxing)
- .stab          0x000045fc      0x27c ./MCAL/GIE/GIE_prog.o
+ .stab          0x00003d98      0x8ac ./MCAL/IIC/IIC_prog.o
+                                0x8b8 (size before relaxing)
+ .stab          0x00004644      0x27c ./MCAL/GIE/GIE_prog.o
                                 0x288 (size before relaxing)
- .stab          0x00004878      0x204 ./MCAL/EXTI/EXTI_config.o
+ .stab          0x000048c0      0x204 ./MCAL/EXTI/EXTI_config.o
                                 0x210 (size before relaxing)
- .stab          0x00004a7c      0x7d4 ./MCAL/EXTI/EXTI_prog.o
+ .stab          0x00004ac4      0x7d4 ./MCAL/EXTI/EXTI_prog.o
                                 0x8d0 (size before relaxing)
- .stab          0x00005250      0x324 ./MCAL/EEPROM/EEPROM_prog.o
-                                0x330 (size before relaxing)
- .stab          0x00005574      0x690 ./MCAL/DIO/DIO_prog.o
-                                0x69c (size before relaxing)
- .stab          0x00005c04      0xaa4 ./MCAL/ADC/ADC_porg.o
-                                0xab0 (size before relaxing)
- .stab          0x000066a8      0x21c ./HAL/Switch/Switch_config.o
-                                0x228 (size before relaxing)
- .stab          0x000068c4      0x4f8 ./HAL/Switch/Switch_prog.o
-                                0x51c (size before relaxing)
- .stab          0x00006dbc      0x660 ./HAL/StepMotor/StepMotor_prog.o
-                                0x66c (size before relaxing)
- .stab          0x0000741c      0x228 ./HAL/SevSeg/SevSeg_config.o
-                                0x234 (size before relaxing)
- .stab          0x00007644      0x684 ./HAL/SevSeg/SevSeg_prog.o
-                                0x840 (size before relaxing)
- .stab          0x00007cc8      0x2ac ./HAL/LM35/LM35_prog.o
-                                0x2b8 (size before relaxing)
- .stab          0x00007f74      0x21c ./HAL/LD/LD_config.o
-                                0x228 (size before relaxing)
- .stab          0x00008190      0x36c ./HAL/LD/LD_prog.o
+ .stab          0x00005298      0x384 ./MCAL/EEPROM/EEPROM_prog.o
                                 0x390 (size before relaxing)
- .stab          0x000084fc     0x12c0 ./HAL/LCD/LCD_prog.o
-                               0x1458 (size before relaxing)
- .stab          0x000097bc      0x21c ./HAL/L293D/L293D_config.o
+ .stab          0x0000561c      0x690 ./MCAL/DIO/DIO_prog.o
+                                0x69c (size before relaxing)
+ .stab          0x00005cac      0xaa4 ./MCAL/ADC/ADC_porg.o
+                                0xab0 (size before relaxing)
+ .stab          0x00006750      0x21c ./HAL/Switch/Switch_config.o
                                 0x228 (size before relaxing)
- .stab          0x000099d8      0x534 ./HAL/L293D/L293D_prog.o
+ .stab          0x0000696c      0x4f8 ./HAL/Switch/Switch_prog.o
+                                0x51c (size before relaxing)
+ .stab          0x00006e64      0x660 ./HAL/StepMotor/StepMotor_prog.o
+                                0x66c (size before relaxing)
+ .stab          0x000074c4      0x228 ./HAL/SevSeg/SevSeg_config.o
+                                0x234 (size before relaxing)
+ .stab          0x000076ec      0x684 ./HAL/SevSeg/SevSeg_prog.o
+                                0x840 (size before relaxing)
+ .stab          0x00007d70      0x2ac ./HAL/LM35/LM35_prog.o
+                                0x2b8 (size before relaxing)
+ .stab          0x0000801c      0x21c ./HAL/LD/LD_config.o
+                                0x228 (size before relaxing)
+ .stab          0x00008238      0x36c ./HAL/LD/LD_prog.o
+                                0x390 (size before relaxing)
+ .stab          0x000085a4     0x12c0 ./HAL/LCD/LCD_prog.o
+                               0x1458 (size before relaxing)
+ .stab          0x00009864      0x21c ./HAL/L293D/L293D_config.o
+                                0x228 (size before relaxing)
+ .stab          0x00009a80      0x534 ./HAL/L293D/L293D_prog.o
                                 0x60c (size before relaxing)
- .stab          0x00009f0c      0x258 ./HAL/Keypad/Keypad_config.o
+ .stab          0x00009fb4      0x258 ./HAL/Keypad/Keypad_config.o
                                 0x264 (size before relaxing)
- .stab          0x0000a164      0x7b0 ./HAL/Keypad/Keypad_prog.o
+ .stab          0x0000a20c      0x7b0 ./HAL/Keypad/Keypad_prog.o
                                 0x960 (size before relaxing)
- .stab          0x0000a914      0x210 ./HAL/EXT_EEPROM/EXT_EEPROM_config.o
+ .stab          0x0000a9bc      0x210 ./HAL/EXT_EEPROM/EXT_EEPROM_config.o
                                 0x21c (size before relaxing)
- .stab          0x0000ab24      0x42c ./HAL/EXT_EEPROM/EXT_EEPROM_prog.o
+ .stab          0x0000abcc      0x42c ./HAL/EXT_EEPROM/EXT_EEPROM_prog.o
                                 0x528 (size before relaxing)
- .stab          0x0000af50      0x108 ./App/main.o
-                                0x114 (size before relaxing)
+ .stab          0x0000aff8      0x288 ./App/main.o
+                                0x294 (size before relaxing)
 
-.stabstr        0x00000000     0x4385
+.stabstr        0x00000000     0x4462
  *(.stabstr)
- .stabstr       0x00000000     0x4385 ./MCAL/WDT/WDT_prog.o
+ .stabstr       0x00000000     0x4462 ./MCAL/WDT/WDT_prog.o
 
 .stab.excl
  *(.stab.excl)

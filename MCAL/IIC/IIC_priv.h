@@ -101,6 +101,7 @@
 /*			TWI Bit Rate Register			*/
 /********************************************/
 #define TWBR			*( (u8*)0x20 )
+#define TWBR_MIN			10
 
 /********************************************/
 /*			TWI Status Register				*/
@@ -134,11 +135,13 @@
 #define TWDR			*( (u8*)0x23 )
 
 
+#define WAIT_FOT_TWINT	while( !( (TWCR >> TWINT )& BIT_MASK ) )
 #define TWI_STATUS		(TWSR & 0xF8)
 
 #define TWI_PRES_1_BITS		0x00
 #define TWI_PRES_4_BITS		0x01
 #define TWI_PRES_16_BITS	0x02
 #define TWI_PRES_64_BITS	0x03
+
 
 #endif /* MCAL_IIC_IIC_PRIV_H_ */

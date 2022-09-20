@@ -463,10 +463,10 @@ ES_t Timer_PollingDelay(u8 Copy_u8TimerNum ,u16 Copy_u16Delay_ms ) // POLLING De
 		{
 			switch( Local_u8COMmode )
 			{
-			case  COMP_NORMAL		:	Local_u32OverFlowCounts = ( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer0_Clk ) / ( 1000UL ) )
+			case  COMP_NORMAL		:	Local_u32OverFlowCounts = ( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer0_Clk ) / ( 1000UL ) )
 																										+ TIMER0_MAX ) / ( TIMER0_MAX + 1 );	/*	Total Overflows	*/
 										TCNT0 = ( TIMER0_MAX + 1 ) -
-												( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer0_Clk ) / ( 1000UL ) ) % (u16)( TIMER0_MAX + 1 ) );	/* PRE-LOAD value	*/									/*	PreLoad Value	*/
+												( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer0_Clk ) / ( 1000UL ) ) % (u16)( TIMER0_MAX + 1 ) );	/* PRE-LOAD value	*/									/*	PreLoad Value	*/
 
 										while( Local_u32OverFlowCounts > TIMER0_BOTTOM )									/*	Delay LOOP							*/
 										{
@@ -476,10 +476,10 @@ ES_t Timer_PollingDelay(u8 Copy_u8TimerNum ,u16 Copy_u16Delay_ms ) // POLLING De
 										}
 										break;
 
-			case  COMP_TOG_ON_MATCH	:	Local_u32OverFlowCounts = ( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer0_Clk ) / (2 * 1000UL ) )
+			case  COMP_TOG_ON_MATCH	:	Local_u32OverFlowCounts = ( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer0_Clk ) / (2 * 1000UL ) )
 																				+ Global_u8OCR0_Value ) / (u16)( Global_u8OCR0_Value + 1 ) ;				/*	Total Overflows	*/
 										TCNT0 = ( Global_u8OCR0_Value + 1 ) -
-												( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer0_Clk ) / ( 2* 1000UL ) ) % (u16)( Global_u8OCR0_Value + 1 ) );/*	PreLoad Value	*/
+												( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer0_Clk ) / ( 2* 1000UL ) ) % (u16)( Global_u8OCR0_Value + 1 ) );/*	PreLoad Value	*/
 
 										while( Local_u32OverFlowCounts > TIMER0_BOTTOM )									/*	Delay LOOP								*/
 										{
@@ -490,10 +490,10 @@ ES_t Timer_PollingDelay(u8 Copy_u8TimerNum ,u16 Copy_u16Delay_ms ) // POLLING De
 										break;
 
 			case  COMP_NON_INVERTED	:	/*	Same as COMP_INVERTED case	*/
-			case  COMP_INVERTED		:	Local_u32OverFlowCounts = ( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer0_Clk ) / ( 1000UL ) )
+			case  COMP_INVERTED		:	Local_u32OverFlowCounts = ( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer0_Clk ) / ( 1000UL ) )
 																				+ Global_u8OCR0_Value ) / ( Global_u8OCR0_Value + 1 );						/*	Total Overflows	*/
 										TCNT0 = ( Global_u8OCR0_Value + 1 ) -
-												( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer0_Clk ) / ( 1000UL ) ) % (u16)( Global_u8OCR0_Value + 1 ) );	/*	PreLoad Value	*/
+												( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer0_Clk ) / ( 1000UL ) ) % (u16)( Global_u8OCR0_Value + 1 ) );	/*	PreLoad Value	*/
 
 										while( Local_u32OverFlowCounts > TIMER0_BOTTOM )
 										{
@@ -518,10 +518,10 @@ ES_t Timer_PollingDelay(u8 Copy_u8TimerNum ,u16 Copy_u16Delay_ms ) // POLLING De
 
 			switch( Local_u8COMmode )
 			{
-			case  COMP_NORMAL		:	Local_u32OverFlowCounts = ( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) )
+			case  COMP_NORMAL		:	Local_u32OverFlowCounts = ( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) )
 																										+ TIMER1_MAX ) / ( TIMER1_MAX + 1 );	/*	Total Overflows	*/
 										Local_u16CounterPreLoad = ( TIMER1_MAX + 1 ) -
-												( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) ) % (u16)( TIMER1_MAX + 1 ) );	/* PRE-LOAD value	*/
+												( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) ) % (u16)( TIMER1_MAX + 1 ) );	/* PRE-LOAD value	*/
 										asm( "CLI" );
 										TCNT1H = ( Local_u16CounterPreLoad >> 8) ;
 										TCNT1L = Local_u16CounterPreLoad ;
@@ -534,10 +534,10 @@ ES_t Timer_PollingDelay(u8 Copy_u8TimerNum ,u16 Copy_u16Delay_ms ) // POLLING De
 										}
 										break;
 
-			case  COMP_TOG_ON_MATCH	:	Local_u32OverFlowCounts = ( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer1_Clk ) / (2 * 1000UL ) )
+			case  COMP_TOG_ON_MATCH	:	Local_u32OverFlowCounts = ( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer1_Clk ) / (2 * 1000UL ) )
 																				+ Global_u8OCR1A_Value ) / (u16)( Global_u8OCR1A_Value + 1 ) ;	/*	Total Overflows	*/
 										Local_u16CounterPreLoad = ( Global_u8OCR1A_Value + 1 ) -
-												( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer1_Clk ) / ( 2* 1000UL ) ) % (u16)( Global_u8OCR1A_Value + 1 ) );	/*	PreLoad Value	*/
+												( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer1_Clk ) / ( 2* 1000UL ) ) % (u16)( Global_u8OCR1A_Value + 1 ) );	/*	PreLoad Value	*/
 										asm( "CLI" );
 										TCNT1H = ( Local_u16CounterPreLoad >> 8) ;
 										TCNT1L = Local_u16CounterPreLoad ;
@@ -551,10 +551,10 @@ ES_t Timer_PollingDelay(u8 Copy_u8TimerNum ,u16 Copy_u16Delay_ms ) // POLLING De
 										break;
 
 			case  COMP_NON_INVERTED	:	/*	Same as COMP_INVERTED case	*/
-			case  COMP_INVERTED		:	Local_u32OverFlowCounts = ( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) )
+			case  COMP_INVERTED		:	Local_u32OverFlowCounts = ( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) )
 																				+ Global_u8OCR1A_Value ) / ( Global_u8OCR1A_Value + 1 );					/*	Total Overflows	*/
 										Local_u16CounterPreLoad = ( Global_u8OCR1A_Value + 1 ) -
-												( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) ) % (u16)( Global_u8OCR1A_Value + 1 )) ;	/*	PreLoad Value	*/
+												( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) ) % (u16)( Global_u8OCR1A_Value + 1 )) ;	/*	PreLoad Value	*/
 										asm( "CLI" );
 										TCNT1H = ( Local_u16CounterPreLoad >> 8) ;
 										TCNT1L = Local_u16CounterPreLoad ;
@@ -581,10 +581,10 @@ ES_t Timer_PollingDelay(u8 Copy_u8TimerNum ,u16 Copy_u16Delay_ms ) // POLLING De
 
 			switch( Local_u8COMmode )
 			{
-			case  COMP_NORMAL		:	Local_u32OverFlowCounts = ( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) )
+			case  COMP_NORMAL		:	Local_u32OverFlowCounts = ( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) )
 																										+ TIMER1_MAX ) / ( TIMER1_MAX + 1 );	/*	Total Overflows	*/
 										Local_u16CounterPreLoad = ( TIMER1_MAX + 1 ) -
-												( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) ) % (u16)( TIMER1_MAX + 1 ) );	/* PRE-LOAD value	*/
+												( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) ) % (u16)( TIMER1_MAX + 1 ) );	/* PRE-LOAD value	*/
 										asm( "CLI" );
 										TCNT1H = ( Local_u16CounterPreLoad >> 8) ;
 										TCNT1L = Local_u16CounterPreLoad ;
@@ -597,10 +597,10 @@ ES_t Timer_PollingDelay(u8 Copy_u8TimerNum ,u16 Copy_u16Delay_ms ) // POLLING De
 										}
 										break;
 
-			case  COMP_TOG_ON_MATCH	:	Local_u32OverFlowCounts = ( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer1_Clk ) / (2 * 1000UL ) )
+			case  COMP_TOG_ON_MATCH	:	Local_u32OverFlowCounts = ( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer1_Clk ) / (2 * 1000UL ) )
 																				+ Global_u8OCR1B_Value ) / (u16)( Global_u8OCR1B_Value + 1 ) ;	/*	Total Overflows	*/
 										Local_u16CounterPreLoad = ( Global_u8OCR1B_Value + 1 ) -
-												( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer1_Clk ) / ( 2* 1000UL ) ) % (u16)( Global_u8OCR1B_Value + 1 ) );	/*	PreLoad Value	*/
+												( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer1_Clk ) / ( 2* 1000UL ) ) % (u16)( Global_u8OCR1B_Value + 1 ) );	/*	PreLoad Value	*/
 										asm( "CLI" );
 										TCNT1H = ( Local_u16CounterPreLoad >> 8) ;
 										TCNT1L = Local_u16CounterPreLoad ;
@@ -614,10 +614,10 @@ ES_t Timer_PollingDelay(u8 Copy_u8TimerNum ,u16 Copy_u16Delay_ms ) // POLLING De
 										break;
 
 			case  COMP_NON_INVERTED	:	/*	Same as COMP_INVERTED case	*/
-			case  COMP_INVERTED		:	Local_u32OverFlowCounts = ( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) )
+			case  COMP_INVERTED		:	Local_u32OverFlowCounts = ( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) )
 																				+ Global_u8OCR1B_Value ) / ( Global_u8OCR1B_Value + 1 );					/*	Total Overflows	*/
 										Local_u16CounterPreLoad = ( Global_u8OCR1B_Value + 1 ) -
-												( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) ) % (u16)( Global_u8OCR1B_Value + 1 )) ;	/*	PreLoad Value	*/
+												( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer1_Clk ) / ( 1000UL ) ) % (u16)( Global_u8OCR1B_Value + 1 )) ;	/*	PreLoad Value	*/
 										asm( "CLI" );
 										TCNT1H = ( Local_u16CounterPreLoad >> 8) ;
 										TCNT1L = Local_u16CounterPreLoad ;
@@ -643,10 +643,10 @@ ES_t Timer_PollingDelay(u8 Copy_u8TimerNum ,u16 Copy_u16Delay_ms ) // POLLING De
 		{
 			switch( Local_u8COMmode )
 			{
-			case  COMP_NORMAL		:	Local_u32OverFlowCounts = ( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer2_Clk ) / ( 1000UL ) )
+			case  COMP_NORMAL		:	Local_u32OverFlowCounts = ( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer2_Clk ) / ( 1000UL ) )
 																										+ TIMER2_MAX ) / ( TIMER2_MAX + 1 );	/*	Total Overflows	*/
 										TCNT2 = ( TIMER2_MAX + 1 ) -
-												( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer2_Clk ) / ( 1000UL ) ) % (u16)( TIMER2_MAX + 1 ) );	/* PRE-LOAD value	*/									/*	PreLoad Value	*/
+												( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer2_Clk ) / ( 1000UL ) ) % (u16)( TIMER2_MAX + 1 ) );	/* PRE-LOAD value	*/									/*	PreLoad Value	*/
 
 										while( Local_u32OverFlowCounts > TIMER2_BOTTOM )									/*	Delay LOOP							*/
 										{
@@ -656,10 +656,10 @@ ES_t Timer_PollingDelay(u8 Copy_u8TimerNum ,u16 Copy_u16Delay_ms ) // POLLING De
 										}
 										break;
 
-			case  COMP_TOG_ON_MATCH	:	Local_u32OverFlowCounts = ( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer2_Clk ) / (2 * 1000UL ) )
+			case  COMP_TOG_ON_MATCH	:	Local_u32OverFlowCounts = ( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer2_Clk ) / (2 * 1000UL ) )
 																				+ Global_u8OCR2_Value ) / (u16)( Global_u8OCR2_Value + 1 ) ;				/*	Total Overflows	*/
 										TCNT2 = ( Global_u8OCR2_Value + 1 ) -
-												( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer2_Clk ) / ( 2* 1000UL ) ) % (u16)( Global_u8OCR2_Value + 1 ) );/*	PreLoad Value	*/
+												( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer2_Clk ) / ( 2* 1000UL ) ) % (u16)( Global_u8OCR2_Value + 1 ) );/*	PreLoad Value	*/
 
 										while( Local_u32OverFlowCounts > TIMER2_BOTTOM )									/*	Delay LOOP								*/
 										{
@@ -670,10 +670,10 @@ ES_t Timer_PollingDelay(u8 Copy_u8TimerNum ,u16 Copy_u16Delay_ms ) // POLLING De
 										break;
 
 			case  COMP_NON_INVERTED	:	/*	Same as COMP_INVERTED case	*/
-			case  COMP_INVERTED		:	Local_u32OverFlowCounts = ( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer2_Clk ) / ( 1000UL ) )
+			case  COMP_INVERTED		:	Local_u32OverFlowCounts = ( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer2_Clk ) / ( 1000UL ) )
 																				+ Global_u8OCR2_Value ) / ( Global_u8OCR2_Value + 1 );						/*	Total Overflows	*/
 										TCNT2 = ( Global_u8OCR2_Value + 1 ) -
-												( ( ( Copy_u16Delay_ms * (u64)Global_u32Timer2_Clk ) / ( 1000UL ) ) % (u16)( Global_u8OCR2_Value + 1 ) );	/*	PreLoad Value	*/
+												( ( ( ( Copy_u16Delay_ms - 1 ) * (u64)Global_u32Timer2_Clk ) / ( 1000UL ) ) % (u16)( Global_u8OCR2_Value + 1 ) );	/*	PreLoad Value	*/
 
 										while( Local_u32OverFlowCounts > TIMER2_BOTTOM )
 										{
