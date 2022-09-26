@@ -8,6 +8,9 @@
 #ifndef SEVSEG_PRIV_H_
 #define SEVSEG_PRIV_H_
 
+#define DIP_ENABLED					35
+#define DIP_DISABLED				39
+
 #define DIP_OFF						DIO_u8LOW
 #define DIP_ON						DIO_u8HIGH
 

@@ -14,8 +14,6 @@
 #define SevSeg_u8MODULE_DISABLE		MODULE_DISABLE
 #define SevSeg_u8MODULE_ENABLE		MODULE_ENABLE
 
-
-#define SevSeg_u8DIGIT_BASE			DIGIT_BASE
 #define SevSeg_u8DIP_OFF			DIP_OFF
 #define SevSeg_u8DIP_ON				DIP_ON
 

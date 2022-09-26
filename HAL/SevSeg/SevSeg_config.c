@@ -28,10 +28,7 @@ SSegModule_t SSegModule[SEV_SEG_MAX_MODULES] =	{
 															{ SevSeg_u8MOD_1_D_GROUP   , SevSeg_u8MOD_1_D_PIN   }	/*	Module 1	PIN D	*/
 														},
 															{ SevSeg_u8MOD_1_DIP_GROUP , SevSeg_u8MOD_1_DIP_PIN },	/*	Module 1	PIN DIP	*/
-														{
-															{ SevSeg_u8MOD_1_EN1_GROUP , SevSeg_u8MOD_1_EN1_PIN },	/*	Module 1	PIN EN1	*/
-															{ SevSeg_u8MOD_1_EN2_GROUP , SevSeg_u8MOD_1_EN2_PIN }	/*	Module 1	PIN EN2	*/
-														}
+															{ SevSeg_u8MOD_1_EN_GROUP  , SevSeg_u8MOD_1_EN_PIN 	},	/*	Module 1	PIN EN	*/
 													},
 													{
 														{
@@ -41,10 +38,7 @@ SSegModule_t SSegModule[SEV_SEG_MAX_MODULES] =	{
 															{ SevSeg_u8MOD_2_D_GROUP   ,SevSeg_u8MOD_2_D_PIN    }	/*	Module 2	PIN D	*/
 														},
 															{ SevSeg_u8MOD_2_DIP_GROUP ,SevSeg_u8MOD_2_DIP_PIN  },	/*	Module 2	PIN DIP	*/
-														{
-															{ SevSeg_u8MOD_2_EN1_GROUP ,SevSeg_u8MOD_2_EN1_PIN  },	/*	Module 2	PIN EN1	*/
-															{ SevSeg_u8MOD_2_EN2_GROUP ,SevSeg_u8MOD_2_EN2_PIN  }	/*	Module 2	PIN EN2	*/
-														}
+															{ SevSeg_u8MOD_2_EN_GROUP  ,SevSeg_u8MOD_2_EN_PIN   }	/*	Module 2	PIN EN	*/
 													}
 												};
 

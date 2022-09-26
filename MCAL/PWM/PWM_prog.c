@@ -408,7 +408,7 @@ ES_t PWM_enuSetClkPrescaler( u8 Copy_u8TimerNum , u8 Copy_u8PrescalerValue )
 #endif
 	else Local_enuErrorState = ES_OUT_RANGE ;
 
-	TIMSK = Local_u8CopyTIMSK ;										// Re-setting Timer Interrupt Mask Register to its Status
+	TIMSK = Local_u8CopyTIMSK ;										// Re-setting Timer Interrupt Mask Register to its initial Status
 
 	return ( (Local_enuErrorState == ES_NOK)? ES_OK : Local_enuErrorState ) ;
 }
@@ -735,7 +735,46 @@ ES_t PWM_enuSetICR1Value( u16 Copy_u16ICR1Value )
 
 ES_t PWM_enuSetInterruptMode( u8 Copy_u8TimerNum , u8 Copy_u8TimerInterruptMode )/////////////************************///////////////////////
 {
-	return ES_OK;
+	ES_t Local_enuErrorState = ES_NOK ;
+
+	if( ( Copy_u8TimerNum == TIMER1A || Copy_u8TimerNum == TIMER1B ) &&
+		( Copy_u8TimerInterruptMode == PWM_OVERFLOW_INT || Copy_u8TimerInterruptMode == PWM_OUT_COMP_INT ) )
+	{
+		u8 Local_u8Iter = 0 , Local_u8Updated = 0 ;
+
+		switch( Copy_u8TimerInterruptMode )
+		{
+			case PWM_OVERFLOW_INT	:	TIMSK |= ( BIT0_MASK << TOIE1_BIT );		/*	Enable TOIE1 Interrupt */
+										for( Local_u8Iter = 0 ; Local_u8Iter < PWM_u8MaxNum ; Local_u8Iter++  )
+										{
+											PWMs[Local_u8Iter].InterruptMode = Copy_u8TimerInterruptMode ;
+										}
+										Local_u8Updated = 1;
+										break;
+			case PWM_OUT_COMP_INT	:	if( Copy_u8TimerNum == TIMER1B )
+										{
+											TIMSK |= ( BIT0_MASK << OCIE1B_BIT );	/*	Enable OCIE1B Interrupt */
+										}
+										else
+										{
+											TIMSK |= ( BIT0_MASK << OCIE1A_BIT );	/*	Enable OCIE1A Interrupt */
+										}
+										break;
+		}
+		if( !Local_u8Updated )
+		{
+			for( Local_u8Iter = 0 ; Local_u8Iter < PWM_u8MaxNum ; Local_u8Iter++  )
+			{
+				if( PWMs[Local_u8Iter].TimerNum == Copy_u8TimerNum )
+				{
+					PWMs[Local_u8Iter].InterruptMode = Copy_u8TimerInterruptMode ;
+				}
+			}
+		}
+	}
+	else Local_enuErrorState = ES_OUT_RANGE ;
+
+	return Local_enuErrorState ;
 }
 
 ES_t PWM_enuGetInterruptMode( u8 Copy_u8TimerNum , u8 *Copy_pu8TimerInterruptMode )////////////////*****************************//////////////////////
@@ -743,9 +782,94 @@ ES_t PWM_enuGetInterruptMode( u8 Copy_u8TimerNum , u8 *Copy_pu8TimerInterruptMod
 	return ES_OK;
 }
 
-ES_t PWM_enuSetDutyCycle( u8 Copy_u8TimerNum , f32 Copy_f32DutyCycle )//////////***********************************/////////////////////
+ES_t PWM_enuSetDutyCycle( u8 Copy_u8TimerNum , f32 Copy_f32DutyCycle )
 {
-	return ES_OK;
+	ES_t Local_enuErrorState = ES_NOK;
+
+	u8 Local_u8TimerWGM_Mode , Local_u8TimerCOM_Mode , Local_u8Flag = 0 ;
+	u16 Local_u16TimerTop , Local_u16OCRValue ;
+
+	if( Copy_u8TimerNum == TIMER1A || Copy_u8TimerNum == TIMER1B )
+	{
+		for(u8 Local_u8Iter = 0 ; Local_u8Iter < PWM_u8MaxNum ; Local_u8Iter++ )
+		{
+			if( PWMs[Local_u8Iter].TimerNum == Copy_u8TimerNum )
+			{
+				Local_u8TimerWGM_Mode = PWMs[Local_u8Iter].WaveGenMode ;
+				Local_u8TimerCOM_Mode = PWMs[Local_u8Iter].CompOutMode ;
+			}
+		}
+		switch( Local_u8TimerWGM_Mode )
+		{
+			case WGM_PC_8_bit	:	Local_u16TimerTop = EIGHT_BIT_TOP ;
+									PC_OCR_CALCULATOR;
+									break;
+			case WGM_FAST_8_bit	:	Local_u16TimerTop = EIGHT_BIT_TOP ;
+									FAST_OCR_CALCULATOR;
+									break;
+			case WGM_PC_9_bit	:	Local_u16TimerTop = NINE_BIT_TOP ;
+									PC_OCR_CALCULATOR;
+									break;
+			case WGM_FAST_9_bit	:	Local_u16TimerTop = NINE_BIT_TOP ;
+									FAST_OCR_CALCULATOR;
+									break;
+			case WGM_PC_10_bit	:	Local_u16TimerTop = TEN_BIT_TOP ;
+									PC_OCR_CALCULATOR;
+									break;
+			case WGM_FAST_10_bit:	Local_u16TimerTop = TEN_BIT_TOP ;
+									FAST_OCR_CALCULATOR;
+									break;
+			case WGM_PFC_ICR1	:	Local_u16TimerTop = Global_u16ICR1_Value ;
+									PC_OCR_CALCULATOR ;
+									break;
+			case WGM_PC_ICR1	:	Local_u16TimerTop = Global_u16ICR1_Value ;
+									PC_OCR_CALCULATOR;
+									break;
+			case WGM_FAST_ICR1	:	Local_u16TimerTop = Global_u16ICR1_Value ;
+									FAST_OCR_CALCULATOR;
+									break;
+			case WGM_PFC_OCR1A	:	Local_u16TimerTop = Global_u16OCR1A_Value ;
+									PC_OCR_CALCULATOR;
+									break;
+			case WGM_PC_OCR1A	:	Local_u16TimerTop = Global_u16OCR1A_Value ;
+									PC_OCR_CALCULATOR;
+									break;
+			case WGM_FAST_OCR1A	:	Local_u16TimerTop = Global_u16OCR1A_Value ;
+									FAST_OCR_CALCULATOR;
+									break;
+		}
+
+		if( !Local_u8Flag )
+		{
+			if( Copy_u8TimerNum == TIMER1A )
+			{
+				u8 Local_u8Temp = SREG ;
+				asm( "CLI" );
+				OCR1AH  = Local_u16OCRValue >> 8 ;
+				OCR1AL 	= Local_u16OCRValue ;
+				SREG = Local_u8Temp;
+				Global_u16OCR1A_Value = Local_u16OCRValue ;
+			}
+			else if( Copy_u8TimerNum == TIMER1B )
+			{
+				u8 Local_u8Temp = SREG ;
+				asm( "CLI" );
+				OCR1BH  = Local_u16OCRValue >> 8 ;
+				OCR1BL 	= Local_u16OCRValue ;
+				SREG = Local_u8Temp;
+				Global_u16OCR1B_Value = Local_u16OCRValue ;
+			}
+		}
+		else
+		{
+			Local_enuErrorState = ES_OUT_RANGE;
+			#warning " PWM_enuSetDutyCycle(): Requested Duty Cycle Can NOT be reached in this mode "
+		}
+
+	}
+	else Local_enuErrorState = ES_OUT_RANGE ;
+
+	return ( Local_enuErrorState == ES_NOK ? ES_OK : Local_enuErrorState ) ;
 }
 
 

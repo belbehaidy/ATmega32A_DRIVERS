@@ -28,6 +28,29 @@ typedef struct
 
 #define WGM_MODE_01			0x01
 #define WGM_MODE_03			0x03
+#define EIGHT_BIT_TOP		0x00FF
+#define NINE_BIT_TOP		0x01FF
+#define TEN_BIT_TOP			0x03FF
+#define PC_NON_INV_OCR_VALUE( DutyCycle , TOP )		(u16)( (DutyCycle * TOP ) / 100UL )
+#define PC_INV_OCR_VALUE( DutyCycle , TOP )			(u16)( TOP - ( ( DutyCycle * TOP ) / 100UL ) )
+#define FAST_NON_INV_OCR_VALUE( DutyCycle , TOP )	(u16)( ( ( DutyCycle * ( TOP + 1UL ) ) / 100UL ) - 1.0 )
+#define FAST_INV_OCR_VALUE( DutyCycle , TOP )		(u16)( TOP - ( ( DutyCycle * ( TOP + 1UL ) ) / 100UL ) )
+#define PC_OCR_CALCULATOR	do{\
+								if( Local_u8TimerCOM_Mode == COMP_NON_INVERTED )\
+									Local_u16OCRValue = PC_NON_INV_OCR_VALUE( Copy_f32DutyCycle , Local_u16TimerTop );\
+								else if( Local_u8TimerCOM_Mode == COMP_INVERTED )\
+									Local_u16OCRValue = PC_INV_OCR_VALUE( Copy_f32DutyCycle , Local_u16TimerTop );\
+								}while(0)
+#define FAST_OCR_CALCULATOR	do{\
+								if( Local_u8TimerCOM_Mode == COMP_NON_INVERTED && Copy_f32DutyCycle == 0.0 )\
+									Local_u8Flag =1 ;\
+								else if( Local_u8TimerCOM_Mode == COMP_INVERTED && Copy_f32DutyCycle == 100.0 )\
+									Local_u8Flag =1 ;\
+								else if( Local_u8TimerCOM_Mode == COMP_NON_INVERTED )\
+									Local_u16OCRValue = FAST_NON_INV_OCR_VALUE( Copy_f32DutyCycle , Local_u16TimerTop );\
+								else if( Local_u8TimerCOM_Mode == COMP_INVERTED )\
+									Local_u16OCRValue = FAST_INV_OCR_VALUE( Copy_f32DutyCycle , Local_u16TimerTop );\
+								}while(0)
 
 
 #define BIT0_MASK			1
@@ -85,7 +108,6 @@ typedef struct
 #define WGM_MODE_13			113		/*	Reserved	*/
 #define WGM_FAST_ICR1		114
 #define WGM_FAST_OCR1A		115
-
 
 /****************************************/
 /*		 Timer Interrupt Options		*/
