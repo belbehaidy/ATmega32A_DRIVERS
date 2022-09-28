@@ -8,14 +8,17 @@
 #ifndef SEVSEG_INT_H_
 #define SEVSEG_INT_H_
 
-#define SevSeg_u8MODULE_1			MODULE_1
-#define SevSeg_u8MODULE_2			MODULE_2
+#define DIP_ENABLED					35
+#define DIP_DISABLED				39
 
-#define SevSeg_u8MODULE_DISABLE		MODULE_DISABLE
-#define SevSeg_u8MODULE_ENABLE		MODULE_ENABLE
+#define MODULE_1					11
+#define MODULE_2					12
 
-#define SevSeg_u8DIP_OFF			DIP_OFF
-#define SevSeg_u8DIP_ON				DIP_ON
+#define MODULE_DISABLE				13
+#define MODULE_ENABLE				14
+
+#define DIP_OFF						DIO_u8HIGH
+#define DIP_ON						DIO_u8LOW
 
 
 ES_t SevSeg_enuInit(void);

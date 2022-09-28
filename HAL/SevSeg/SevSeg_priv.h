@@ -11,15 +11,9 @@
 #define DIP_ENABLED					35
 #define DIP_DISABLED				39
 
-#define DIP_OFF						DIO_u8LOW
-#define DIP_ON						DIO_u8HIGH
-
 #define SevSeg_u8BIT_MASK			0x01
 
 #define SevSeg_u8FRAME_DELAY		20
-
-
-
 
 #define MODULE_1					11
 #define MODULE_2					12

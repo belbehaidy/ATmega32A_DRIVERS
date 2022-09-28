@@ -5,10 +5,10 @@
  *      Author: Bassem El-Behaidy
  */
 
-#include "..\..\Libraries\stdTypes.h"
-#include "..\..\Libraries\errorState.h"
+#include "../../Libraries/stdTypes.h"
+#include "../../Libraries/errorState.h"
 
-#include "..\..\MCAL\DIO\DIO_int.h"
+#include "../../MCAL/DIO/DIO_int.h"
 
 #include "SevSeg_config.h"
 #include "SevSeg_priv.h"
@@ -16,8 +16,6 @@
 
 u8 SevSeg_u8MaxModules = SEV_SEG_MAX_MODULES;
 u8 ModuleValuePins = MODULE_VALUE_PINS;
-u8 ModuleControlPins = MODULE_CONTROL_PINS;
-
 
 SSegModule_t SSegModule[SEV_SEG_MAX_MODULES] =	{
 													{

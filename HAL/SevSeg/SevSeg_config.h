@@ -8,14 +8,21 @@
 #ifndef SEVSEG_CONFIG_H_
 #define SEVSEG_CONFIG_H_
 
-#include "..\..\Libraries\stdTypes.h"
+#include "stdTypes.h"
 
 #define SEV_SEG_MAX_MODULES		2
 #define MODULE_VALUE_PINS		4
-#define DIP_STATUS				DIP_DISABLED
-#define MODULE_CONTROL_PINS		1
+//#define MODULE_CONTROL_PINS		1
 #define DIGIT_BASE				10
 
+#define	SEGMENT_ON					DIO_u8HIGH
+#define	SEGMENT_OFF					DIO_u8LOW
+
+#define DIP_OFF						DIO_u8HIGH
+#define DIP_ON						DIO_u8LOW
+
+#define MOD_EN_ON					DIO_u8HIGH
+#define MOD_EN_OFF					DIO_u8LOW
 
 typedef struct
 {
@@ -45,7 +52,7 @@ typedef struct
 #define SevSeg_u8MOD_1_D_GROUP		DIO_u8GROUP_A	//D PORT
 #define SevSeg_u8MOD_1_D_PIN		DIO_u8PIN7		//D PIN
 
-#define SevSeg_u8MOD_1_DIP_GROUP	DIO_u8GROUP_A	//DIP PORT
+#define SevSeg_u8MOD_1_DIP_GROUP	DIO_u8GROUP_B	//DIP PORT
 #define SevSeg_u8MOD_1_DIP_PIN		DIO_u8PIN3		//DIP PIN
 
 #define SevSeg_u8MOD_1_EN_GROUP		DIO_u8GROUP_B	//EN1 PORT
@@ -70,7 +77,7 @@ typedef struct
 #define SevSeg_u8MOD_2_D_GROUP		DIO_u8GROUP_A	//D PORT
 #define SevSeg_u8MOD_2_D_PIN		DIO_u8PIN7		//D PIN
 
-#define SevSeg_u8MOD_2_DIP_GROUP	DIO_u8GROUP_A	//DIP PORT
+#define SevSeg_u8MOD_2_DIP_GROUP	DIO_u8GROUP_B	//DIP PORT
 #define SevSeg_u8MOD_2_DIP_PIN		DIO_u8PIN3		//DIP PIN
 
 #define SevSeg_u8MOD_2_EN_GROUP		DIO_u8GROUP_B	//EN2 PORT
